@@ -31,6 +31,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = find_root(HERE)
 SITE_URL = "https://cwstedctw.github.io/money-banking-ai-checkup/"
 REPO_URL = "https://github.com/cwstedctw/money-banking-ai-checkup"
+ZIP_URL = REPO_URL + "/archive/refs/heads/main.zip"
 N = json.loads((ROOT / "numbers.json").read_text(encoding="utf-8"))
 
 
@@ -124,8 +125,9 @@ def index_html():
 <div class="card"><h3>病人：彰化銀行（2801）・2025-12-31 合併資產負債表</h3>
 <p class="meta">單位新臺幣千元。財報 10 頁，合併資產負債表在 PDF 第 1 頁（紙本頁碼 8）。</p>
 <ul class="links">
+{a(ZIP_URL, "下載課程資料夾（ZIP）", "解開後用你的 AI agent 打開 kit/zh：規則、任務、財報網址都在裡面", "primary")}
 {a("zh/deck.html", "投影片（網頁版）", "22 頁；提示語框有「複製」鈕，左右鍵翻頁", "primary")}
-{a("zh/prompts.html", "提示語①–⑤（手機版）", "一鍵複製，貼進 AI 筆記本／ChatGPT／Claude", "primary")}
+{a("zh/prompts.html", "提示語①–⑤（手機版）", "沒有 agent 的人：一鍵複製，貼進 ChatGPT／Claude 網頁", "")}
 {a("zh/worksheet.html", "學生練習單（網頁版）", "每一步：做什麼、貼什麼、應該看到、多久")}
 {a("zh/files/學生練習單-銀行體檢.docx", "學生練習單（Word）", "同內容，可下載填寫")}
 {a("zh/files/體檢表範本.xlsx", "體檢表範本（Excel）", "填數字，五個比率自動算")}
@@ -145,8 +147,9 @@ def index_html():
 <div class="card"><h3>Patient: JPMorgan Chase &amp; Co. · Consolidated balance sheets, Dec 31, 2025</h3>
 <p class="meta">US$ million. 2025 Annual Report, 364 pages; the balance sheet is on PDF page 199 (= page 167 in the 10-K's own numbering).</p>
 <ul class="links">
+{a(ZIP_URL, "Download the course folder (ZIP)", "Unzip, then open kit/en with your AI agent: rules, tasks and report links are inside", "primary")}
 {a("en/deck.html", "Slides (web)", "22 pages; prompt boxes have a Copy button; arrow keys to navigate", "primary")}
-{a("en/prompts.html", "Prompts ①–⑤ (phone)", "One-tap copy for Gemini Notebook / ChatGPT / Claude", "primary")}
+{a("en/prompts.html", "Prompts ①–⑤ (phone)", "No agent? One-tap copy for ChatGPT / Claude on the web", "")}
 {a("en/worksheet.html", "Student worksheet (web)", "Each step: what to do, what to paste, what you should see, how long")}
 {a("en/files/Student-Worksheet-Bank-Checkup.docx", "Student worksheet (Word)", "Same content, downloadable")}
 {a("en/files/checkup-template.xlsx", "Check-up template (Excel)", "Type the numbers; the five ratios compute themselves")}
@@ -164,9 +167,9 @@ def index_html():
     how = f"""
 <h2>怎麼用 / How to use</h2>
 <div class="card"><ol class="steps">
-<li>登入一個能上傳 PDF 的 AI：AI 筆記本（Gemini Notebook，原名 NotebookLM；用 Google 帳號）、ChatGPT 或 Claude。<br><span class="use">Log in to an AI that takes PDF uploads: Gemini Notebook (formerly NotebookLM), ChatGPT or Claude.</span></li>
-<li>下載上面的財報，上傳給它。<br><span class="use">Download the report above and upload it.</span></li>
-<li>貼提示語 ③，拿到一張每格有頁碼的表；<b>五個比率自己算</b>（體檢表範本會算）。<br><span class="use">Paste Prompt ③, get a table with a page for every cell; <b>compute the five ratios yourself</b>.</span></li>
+<li><b>主線：用你的 AI agent 開資料夾。</b>下載課程資料夾 ZIP、解開，用 Antigravity（File → Open Folder）、ChatGPT 桌面版的 Codex（新增專案 → 選資料夾）或 Claude 桌面版（Code 分頁 → 開啟資料夾）打開 <code>kit/zh</code>，貼一句「請照這個資料夾的 AGENTS.md 做完 任務.md 的任務一」。它會自己抓財報、做出每格有頁碼的表、列出比率算式。<br><span class="use"><b>Main route: open the folder with your AI agent.</b> Unzip the course folder and open <code>kit/en</code> in Antigravity (File → Open Folder), ChatGPT desktop's Codex (New project → choose folder) or Claude desktop (Code tab → Open folder); paste "Follow AGENTS.md in this folder and complete Task 1 in TASK.md".</span></li>
+<li><b>沒有 agent？</b>下載上面的財報，上傳到 ChatGPT 或 Claude 網頁，貼提示語 ③。<br><span class="use"><b>No agent?</b> Download the report above, upload it to ChatGPT or Claude on the web, paste Prompt ③.</span></li>
+<li>拿到表之後，<b>五個比率自己再算一次</b>（體檢表範本會算）——agent 算得快，核對是你的事。<br><span class="use">Then <b>recompute the five ratios yourself</b> (the template does it) — the agent is fast, checking is your job.</span></li>
 <li>抽三格回原文查：單位、年度欄、合併或個體。<br><span class="use">Spot-check three cells against the original: units, year column, consolidated or not.</span></li>
 <li>交作業附揭露句：「本作業使用＿＿（AI 工具）協助＿＿（做了什麼）；數字已由本組對照原文核對。」</li>
 </ol></div>
@@ -197,9 +200,9 @@ def prompts_html(lang):
         cards.append(f'<div class="card"><div class="pbar"><span class="tag">{html.escape(tag)}</span>'
                      f'<button class="copy" data-for="p{i}" data-done="{"已複製 ✓" if zh else "Copied ✓"}">{"複製" if zh else "Copy"}</button></div>'
                      f'<p class="use">{html.escape(use)}</p><pre class="prompt" id="p{i}">{html.escape(text)}</pre></div>')
-    intro = ('<p class="note">三種 AI 都能用：AI 筆記本（Gemini Notebook，原名 NotebookLM）、ChatGPT、Claude。先上傳財報，再整段貼上。找不到的數字它會說「找不到」，那是對的——自己翻 PDF。</p>'
+    intro = ('<p class="note">有 AI agent 的人不用這一頁：下載課程資料夾、用 agent 打開 <code>kit/zh</code>，任務檔裡就是這些提示語。這一頁給用 ChatGPT／Claude 網頁的人：先上傳財報，再整段貼上。找不到的數字它會說「找不到」，那是對的——自己翻 PDF。</p>'
              if zh else
-             '<p class="note">Works in Gemini Notebook (formerly NotebookLM), ChatGPT and Claude. Upload the report first, then paste the whole prompt. If it says "not found", that is the right answer — open the PDF yourself.</p>')
+             '<p class="note">If you have an AI agent you do not need this page: download the course folder and open <code>kit/en</code>; the task file holds these prompts. This page is for ChatGPT / Claude on the web: upload the report first, then paste the whole prompt. If it says "not found", that is the right answer — open the PDF yourself.</p>')
     back = f'<p class="note"><a href="../index.html">{"← 回首頁" if zh else "← Home"}</a>・<a href="deck.html">{"投影片" if zh else "Slides"}</a>・<a href="worksheet.html">{"練習單" if zh else "Worksheet"}</a></p>'
     title = "提示語①–⑤（中文場・彰化銀行）" if zh else "Prompts ①–⑤ (English session · JPMorgan Chase)"
     return page(title, back + intro + "".join(cards) + back, "zh-Hant" if zh else "en",
@@ -277,12 +280,17 @@ def mirror_repo(out: pathlib.Path):
     (out / "內容規格.md").write_text(spec_pub, encoding="utf-8")
     copies = ["numbers.json", "numbers.md", "bank_numbers.py", "check_econ2.py", "web-shell.html", "export_pdf.py",
               "deck/make_slides.py", "deck/econ.css", "deck/deck.css",
-              "demo/svb/make_svb_excerpt.py", "demo/notebook-示範小抄.md",
-              "demo/agent-zh/AGENTS.md", "demo/agent-zh/任務.md", "demo/agent-zh/README.md",
-              "demo/agent-en/AGENTS.md", "demo/agent-en/TASK.md", "demo/agent-en/README.md",
+              "demo/svb/make_svb_excerpt.py", "demo/示範小抄.md",
               "elearn/e學苑標籤與作業說明.md", "data/README.md"]
     for rel in copies:
         copy_file(ROOT / rel, out / rel)
+    # 學生用的課程資料夾 kit/zh、kit/en：規則、任務、README、data/README.md；PDF 與成品不進 repo
+    for p in (ROOT / "kit").rglob("*"):
+        if p.is_file() and p.suffix != ".pdf" and "成品" not in p.parts and "output" not in p.parts:
+            copy_file(p, out / p.relative_to(ROOT))
+    stale = [q for q in (out / "demo").glob("agent-*") if q.is_dir()]
+    for q in stale:
+        shutil.rmtree(q)
     for p in (ROOT / "student").iterdir():
         if p.suffix in (".docx", ".xlsx", ".html"):
             copy_file(p, out / "student" / p.name)

@@ -17,6 +17,9 @@
   ⑤ 頁數 22×2、深底頁＝1 與 22（build 每頁檔、打包單檔都查）。
   ⑥ 每頁正文中文字數（不含提示語框；> 80 列 WARN，不擋）；英文版可見文字與 deck/內容稿.en.md 不得有中文或全形標點（FAIL）；中文版列出出現的英文詞（INFO，給人看是否 ≤8 個）。
   ⑦ 矽谷銀行只用一個口徑：deck 不得出現附註的未實現損失與它推出的認列後權益（15,160、844）。
+  ⑧ 不提 AI 筆記本（內容規格 v1.1 §〇 G，Ted 2026-11-15 晚拍板）：學生會看到的檔（deck/build/、deck-*.html、deck/內容稿.*.md、
+     student/、elearn/、kit/；docx／xlsx 讀裡面的 XML）出現「筆記本」「Notebook／notebook」「NotebookLM」就 FAIL；資料夾還沒有就跳過。
+  網址允許清單另收課程網站 SITE_URLS（v1.1 §二 p2、p22；QR 是內嵌 data URI，不算外部資源）。
 ⚠️ 本夾有 bank_numbers.py，會蓋掉 Python 標準函式庫的 numbers 模組（decimal、fractions、PIL 都會壞）；所以這支一開頭先把本夾從 sys.path 拿掉。
 2026-11-15 建置者寫。
 """
@@ -36,11 +39,14 @@ PROMPT_PAGES = [4, 6, 10, 16, 20]
 DARK = {1, 22}
 PAGES = 22
 NUM_RE = re.compile(r"(?<![\w.])(\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d{4,}(?:\.\d+)?)(?![\w])")
-URL_RE = re.compile(r"https?://[^\s<>\"'`）)」]+")
+URL_RE = re.compile(r"https?://[^\s<>\"'`）)」*]+")
 CJK_RE = re.compile(r"[㐀-䶿一-鿿]")
 ZH_ANY_RE = re.compile(r"[　-〿㐀-䶿一-鿿＀-￯]")   # 中文字＋全形標點（英文輸出都不該有）
 MAINLAND = ["軟件", "視頻", "信息", "數據庫", "默認", "優化", "質量", "屏幕", "鼠標", "點擊", "網絡", "用戶", "登錄", "鏈接", "文檔"]
 SIMPLIFIED = "们这说时银资产负债权证数发现应该进过还国东华习题页码设检验写读为么问统务汇贷币级报录网络单图"   # 只放「簡體專用」字（益、據這類繁簡同形的別放）
+SITE_URLS = {"https://cwstedctw.github.io/money-banking-ai-checkup/",   # 課程網站（內容規格 v1.1 §二 p2、p22）
+             "https://github.com/cwstedctw/money-banking-ai-checkup",
+             "https://github.com/cwstedctw/money-banking-ai-checkup/archive/refs/heads/main.zip"}   # repo 與 ZIP（§〇 G）
 ALLOWED_YEARS = set(range(2021, 2027))
 ALLOWED_MISC = {1280, 720}
 ALLOWED_SESSION = {1116, 1118}   # 場次日期 MMDD（本夾名 -1116、交付夾 第二輪-1116-1118），不是金額
@@ -124,7 +130,7 @@ for f in files():
     raw = f.read_text(encoding="utf-8", errors="replace")
     text = visible(raw) if f.suffix == ".html" else raw
     for u in URL_RE.findall(text):
-        if u not in JSON_URLS:
+        if u not in JSON_URLS and u not in SITE_URLS:
             say("FAIL" if is_deck(f) else "WARN", f"① {rel(f)}：網址不在 numbers.json：{u}")
     body = URL_RE.sub(" ", text)
     bad = sorted({m for m in NUM_RE.findall(body) if not num_ok(m)})
@@ -267,6 +273,46 @@ for f in [x for x in files() if is_deck(x)]:
         say("FAIL", f"⑦ {rel(f)}：矽谷銀行附註口徑的數字不該上投影片 {hit}")
 if not bad7:
     say("PASS", f"⑦ 投影片沒有矽谷銀行附註口徑的 {'、'.join(BANNED_SVB)}（只用表上差額 {V_SVB['htm_fair_value_gap']:,}、{V_SVB['equity_if_htm_gap_recognized']:,}）")
+
+# ---- ⑧ 不提 AI 筆記本 -----------------------------------------------------------------------------
+import zipfile  # noqa: E402
+
+NOTEBOOK_RE = re.compile(r"筆記本|notebook", re.I)
+
+
+def student_files():
+    fs = list((HERE / "deck/build").glob("*/[0-9][0-9].html")) + list(HERE.glob("deck-*.html")) + list((HERE / "deck").glob("內容稿.*.md"))
+    for d in ("student", "elearn", "kit"):
+        if (HERE / d).is_dir():
+            fs += [f for f in (HERE / d).rglob("*") if f.is_file() and not f.name.startswith("~$")
+                   and "data" not in f.relative_to(HERE / d).parts[:-1] and f.suffix.lower() != ".pdf"]
+    return sorted(fs)
+
+
+def text_of(f):
+    if f.suffix.lower() in (".docx", ".xlsx", ".pptx"):
+        try:
+            with zipfile.ZipFile(f) as z:
+                return " ".join(z.read(n).decode("utf-8", "replace") for n in z.namelist() if n.endswith(".xml"))
+        except zipfile.BadZipFile:
+            return ""
+    if f.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".zip"):
+        return ""
+    raw = f.read_text(encoding="utf-8", errors="replace")
+    return visible(raw) if f.suffix.lower() == ".html" else raw
+
+
+bad8 = 0
+sf = student_files()
+for f in sf:
+    hits = sorted({m.group(0) for m in NOTEBOOK_RE.finditer(text_of(f))})
+    if hits:
+        bad8 += 1
+        say("FAIL", f"⑧ {rel(f)}：學生會看到的檔提到 AI 筆記本 {hits}")
+if not (HERE / "kit").is_dir():
+    say("INFO", "⑧ kit/ 還沒有，這次沒掃")
+if not bad8:
+    say("PASS", f"⑧ {len(sf)} 個學生會看到的檔沒有提到 AI 筆記本（筆記本／Notebook）")
 
 for lv in ("PASS", "INFO", "WARN", "FAIL"):
     for m in out[lv]:

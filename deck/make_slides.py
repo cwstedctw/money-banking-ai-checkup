@@ -71,6 +71,21 @@ def left_after_run(bank):
     return a["liquid_assets_before"] - a["liquid_used"]
 
 
+SITE = "https://cwstedctw.github.io/money-banking-ai-checkup/"   # 課程網站（內容規格 v1.1 §二 p2、p22）
+QR_SRC = pathlib.Path(r"D:/Ted_data/active/money-banking-ai-checkup/docs/qr.png")   # 網站 repo 產的 QR；build_web 內嵌成 data URI
+
+
+def ensure_qr():
+    """把網站 QR 複製到 build/assets/（不進 git）；build_web.py 會把 ../assets/qr.png 換成 data URI。"""
+    import shutil
+    dst = BUILD / "assets" / "qr.png"
+    if QR_SRC.exists():
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(QR_SRC, dst)
+    elif not dst.exists():
+        raise SystemExit(f"找不到網站 QR：{QR_SRC}（網站 repo money-banking-ai-checkup 的 docs/qr.png），也沒有 build/assets/qr.png")
+
+
 RUN = pct_in(CHB["stress"]["A_deposit_run_10pct"]["scenario"])     # 10
 SHOCK = pct_in(CHB["stress"]["B_rate_shock_5pct"]["scenario"])     # 5
 
@@ -263,10 +278,16 @@ def pages(lang):
     add(2, J("回顧 · 今天多一步", "RECAP · ONE MORE STEP"), J("9 月學的，加一步", "What we did in September, plus one step"),
         '<div class="ec-cols">' + card("", sep_l) + '<div class="ec-card gold" style="flex:1.5 1 0"><h4>' + J("今天", "Today") + '</h4>'
         + f'<div class="ec-flow" style="margin-top:8px">{flow}</div></div></div>'
-        + '<div class="ec-card"><h4>' + J("工具三選一，提示語都一樣", "Pick one tool; the prompts are the same") + "</h4>"
-        + J("AI 筆記本（Gemini Notebook，原名 NotebookLM）／ChatGPT／Claude",
-            "AI notebook (Gemini Notebook, formerly NotebookLM) / ChatGPT / Claude") + "</div>",
-        J("手機或筆電先登入其中一個", "Log in to one of them on your phone or laptop now"), "hand")
+        + '<div class="ec-card" style="display:flex;gap:18px;align-items:center"><div style="flex:1 1 auto">'
+        + "<h4>" + J("工具：提示語都一樣", "Tools: the prompts are the same") + "</h4>"
+        + J("<b>主線</b>＝你的 AI agent 打開課程資料夾（Antigravity／ChatGPT 桌面版（Codex）／Claude 桌面版，哪個有就用哪個）<br>"
+            "<b>沒有 agent</b>＝ChatGPT／Claude 網頁上傳 PDF",
+            "<b>Main route</b>: open the course folder with your AI agent (Antigravity / ChatGPT desktop (Codex) / Claude desktop, whichever you have)<br>"
+            "<b>No agent?</b> Upload the PDF to ChatGPT or Claude on the web")
+        + f'<div class="ec-url-l">{esc(SITE)}</div></div>'
+        + f'<img class="ec-qr" src="../assets/qr.png" alt="{J("課程網站 QR code", "Course website QR code")}"></div>',
+        J("下載課程資料夾、用你的 agent 打開；沒有 agent 就登入 ChatGPT／Claude",
+          "Download the course folder and open it with your agent; no agent? Log in to ChatGPT or Claude"), "hand")
 
     # p3
     three = J([("來源交給 AI，每句要頁碼", ""), ("五個比率看一家銀行怎麼做生意", ""), ("分辨「哪句有頁碼、哪句是 AI 推的」", "")],
@@ -279,8 +300,8 @@ def pages(lang):
 
     # p4 提示語 ①
     add(4, J("課文整理 · 提示語 ①", "STUDY GUIDE · PROMPT ①"), J("提示語 ①：把一章講義交給 AI", "Prompt ①: hand one chapter of notes to the AI"),
-        '<div class="ec-side">' + J("用王老師給的那一章講義（PDF）上傳。AI 筆記本的答案旁有出處小標，點了會跳回原文那一頁。",
-                                    "Upload the chapter of lecture notes (PDF) from Prof. Wang. In the AI notebook every answer carries small citation marks; click one and it jumps back to that page.")
+        '<div class="ec-side">' + J("把王老師給的那一章講義（PDF）放進資料夾給 agent，或上傳到聊天版；要它每一題附頁碼。",
+                                    "Put the chapter of lecture notes (PDF) from Prof. Wang into the folder for your agent, or upload it to the chat version; make it give a page for every question.")
         + "</div>" + prompt_box(lang, 1),
         J("照頁碼翻回去對一題：對的舉手", "Turn to the page it cites and check one question: hands up if it matches"), "hand")
 
@@ -299,7 +320,7 @@ def pages(lang):
     # p6 提示語 ②
     add(6, J("老師示範 · 提示語 ②", "TEACHER DEMO · PROMPT ②"), J("提示語 ②：三題，第三題問表上沒有的", "Prompt ②: three questions; the third asks for something not on the sheet"),
         prompt_box(lang, 2, "m" if zh else "s"),
-        J("老師台上跑；看出處小標", "I run it up front; watch the citation marks"))
+        J("老師台上跑；看它每個數字指到哪一列、第幾頁", "I run it up front; watch which line and page it points to for each number"))
 
     # p7 揭曉
     V = SVB["variants"]
@@ -334,8 +355,8 @@ def pages(lang):
                         f"<div class=\"ec-note\">頁面下方印的頁碼是 {s1['printed_page']}</div>", "gold")
                  + card("檔案二：2025 年年報", f"共 {pages_in(s2['title'])} 頁<br>業務內容從 PDF 第 {s2['business_pdf_page']} 頁起"
                         f"<div class=\"ec-note\">看它的存款、放款各占多少</div>")
-                 + card("單位與檔案在哪", "單位：新臺幣千元<br>e學苑或老師的共用筆記本"
-                        "<div class=\"ec-note\">上課先傳 10 頁的財報就好；年報回家做經營方式時再傳</div>")
+                 + card("兩條路線（單位：新臺幣千元）", "<b>agent</b>：照 <code>data/README.md</code> 自己抓這兩份"
+                        "<div style=\"margin-top:4px\"><b>聊天版</b>：從網站下載 10 頁財報上傳；年報回家做經營方式再傳</div>")
                  + "</div>")
     else:
         s1 = JPM["source"]
@@ -344,11 +365,12 @@ def pages(lang):
                  + card("The file: 2025 Annual Report", f"{pages_in(s1['title'])} pages<br>Consolidated balance sheets on PDF page {s1['pdf_page']}"
                         f"<div class=\"ec-note\">= page {pg(s1['printed_page'])} in the 10-K’s own numbering</div>", "gold")
                  + card("Two page numberings", "The front part and the 10-K each number their own pages. <b>Always say which one.</b>", "red")
-                 + card("Units and where", "US$ million<br>On the course e-learning site or in the shared notebook"
-                        f"<div class=\"ec-note\">Upload fails? Give it PDF page {s1['pdf_page']} only, or use the AI notebook</div>")
+                 + card("Two routes (US$ million)", "<b>Agent</b>: it fetches the file itself from <code>data/README.md</code>"
+                        f"<div style=\"margin-top:4px\"><b>Chat</b>: upload the PDF, or only PDF page {s1['pdf_page']} if it is too big</div>")
                  + "</div>")
     add(9, J("今天的病人", "TODAY'S PATIENT"), J("今天的病人：彰化銀行", f"Today's patient: {esc(JPM['name_en'])}"), body9,
-        J("把財報 PDF 上傳到你的 AI（或開共用筆記本）", "Upload the report PDF to your AI (or open the shared notebook)"), "hand")
+        J("對 agent 說「照 AGENTS.md 做完任務一」；聊天版把財報上傳",
+          "Tell your agent “follow AGENTS.md and finish Task 1 in TASK.md”; chat route: upload the report"), "hand")
 
     # p10 提示語 ③
     add(10, J("銀行體檢 · 提示語 ③", "BANK CHECK-UP · PROMPT ③"), J("提示語 ③：銀行體檢", "Prompt ③: the bank check-up"),
@@ -356,12 +378,13 @@ def pages(lang):
 
     # p11 agent
     src2 = J("公開資訊觀測站", "SEC EDGAR")
-    steps = J(["自己開檔", "抄表、附頁碼", "算五個比率", "畫圖、寫一頁備忘", f"用第二個來源查自己（{src2}）"],
-              ["Opens the files itself", "Copies the table with pages", "Computes the five ratios", "Draws a chart, writes a one-page memo", f"Checks itself against a second source ({src2})"])
+    src2 = J("公開資訊觀測站", "SEC EDGAR XBRL")
+    steps = J(["你們的任務一：抄表、附頁碼、列算式", "加碼一：畫五個比率的圖", "加碼二：寫一頁備忘", f"加碼三：用第二個來源查自己（{src2}）"],
+              ["Your Task 1: the table, pages and formulas", "Extra 1: a chart of the five ratios", "Extra 2: a one-page memo", f"Extra 3: checks itself against a second source ({src2})"])
     flow11 = '<span class="ar">→</span>'.join(f'<div class="st"><b>{i+1}</b>{s}</div>' for i, s in enumerate(steps))
-    add(11, J("老師台上同時做", "MEANWHILE, UP FRONT"), J("老師台上同時做：把同一個任務交給桌面 AI agent", "Meanwhile I give the same task to a desktop AI agent"),
+    add(11, J("老師台上同時做", "MEANWHILE, UP FRONT"), J("老師台上同時做：加碼版交給桌面 AI agent", "Meanwhile, up front: the extended version goes to a desktop AI agent"),
         '<div class="ec-cols">'
-        + card(J("給它什麼", "What it gets"), J("Claude 桌面版（Code 分頁）<br>一個資料夾：兩份 PDF＋一份規則", "Claude desktop app (the Code tab)<br>One folder: two PDFs + one rules file"))
+        + card(J("給它什麼", "What it gets"), J("Claude 桌面版（Code 分頁）開你們同一個資料夾<br>跑 <code>任務-老師示範.md</code>", "Claude desktop (the Code tab) opens the same folder as yours<br>and runs <code>TASK-teacher-demo.md</code>"))
         + card(J("我只做一件事", "All I do"), J("按下去，先不等它，回來繼續上課。", "Press go, do not wait, and carry on with the class."), "gold")
         + "</div>" + f'<div class="ec-flow">{flow11}</div>',
         J("預測：它跟你的表會差在哪一格？", "Predict: which cell will differ between its table and yours?"), "hand")
@@ -370,12 +393,11 @@ def pages(lang):
     hd = J(["比率", "分子／分母（數字）", "算式", "比率", "PDF 頁碼", "我查過 ✓"],
            ["Ratio", "Numerator / denominator", "Formula", "Ratio", "PDF page", "Checked ✓"])
     rows12 = "".join(f'<tr><td><b>{CIRC[i]}</b> {r[lang]}</td>' + '<td class="blank"></td>' * 5 + "</tr>" for i, r in enumerate(RD))
-    add(12, J("自己算", "DO THE MATH YOURSELF"), J("比率自己算：體檢表", "Compute the ratios yourself: the check-up sheet"),
-        '<div class="ec-lead">' + J("AI 只負責找數字＋頁碼；比率用計算機或試算表範本自己算。",
-                                    "The AI only finds the numbers and their pages; you compute the ratios with a calculator or the spreadsheet template.") + "</div>"
+    add(12, J("再算一次", "DO THE MATH AGAIN"), J("比率自己算，再叫 agent 對帳：體檢表", "Compute the ratios yourself, then have the agent check: the sheet"),
+        '<div class="ec-lead">' + J("agent 幫你找數字、列算式；比率你自己算進體檢表，算完再叫它算一次對帳——差一格就是線索。聊天版的人一樣自己算。", "The agent finds the numbers and writes the formulas; you compute the ratios into the check-up sheet, then ask it to compute them too and compare — a mismatch is a clue. Chat users compute them as well.") + "</div>"
         + '<table class="ec-tb"><tr>' + "".join(f"<th>{h}</th>" for h in hd) + f"</tr>{rows12}</table>"
         + '<div class="ec-note">' + J(f"單位：＿＿　年度欄：＿＿　合併或個體：＿＿", "Units: ____ &nbsp; Year column: ____ &nbsp; Consolidated? ____") + "</div>",
-        J("五格都有頁碼", "All five rows have a page number"))
+        J("五格都有頁碼、兩次算的一樣", "All five rows have a page number, and both calculations agree"))
 
     # p13 抽查
     if zh:
@@ -541,15 +563,15 @@ def pages(lang):
 
     # p22 深
     if zh:
-        links = [("彰化銀行 114 年度財務報告", CHB["source"]["url"]), ("彰化銀行 2025 年年報", CHB["source_business"]["url"]),
+        links = [("課程網站（下載課程資料夾）", SITE), ("彰化銀行 114 年度財務報告", CHB["source"]["url"]), ("彰化銀行 2025 年年報", CHB["source_business"]["url"]),
                  ("JPMorgan Chase 2025 年報", JPM["source"]["url"])]
         disc = "「本作業使用＿＿（AI 工具）協助＿＿（做了什麼）；數字已由本組對照原文核對。」"
-        backup = "備援：AI 筆記本開不了 → ChatGPT／Claude 上傳 PDF；都不行 → 看老師示範、手算。"
+        backup = "備援：agent 開不了 → ChatGPT／Claude 網頁上傳 PDF；都不行 → 看老師示範、手算。"
     else:
-        links = [("JPMorgan Chase 2025 Annual Report", JPM["source"]["url"]), ("JPMorgan Chase 2025 Form 10-K on SEC EDGAR", JPM["source"]["edgar_url"]),
+        links = [("Course website (download the course folder)", SITE), ("JPMorgan Chase 2025 Annual Report", JPM["source"]["url"]), ("JPMorgan Chase 2025 Form 10-K on SEC EDGAR", JPM["source"]["edgar_url"]),
                  ("SVB Financial Group 2022 Form 10-K on SEC EDGAR", SVB["source"]["url"])]
         disc = "“This assignment used ____ (AI tool) to help with ____ (what it did); our group checked every number against the original source.”"
-        backup = "Backup: AI notebook will not open → upload the PDF to ChatGPT or Claude; nothing works → watch my demo and work it by hand."
+        backup = "Backup: agent will not start → upload the PDF to ChatGPT or Claude on the web; nothing works → watch my demo and work it by hand."
     add(22, J("揭露句與連結", "DISCLOSURE AND LINKS"), J("揭露句與連結", "Disclosure sentence and links"),
         f'<div class="ec-disc">{disc}</div>'
         + '<div class="ec-card"><div class="ec-links">' + "".join(f'<div class="lk"><b>{esc(t)}</b><span class="ec-url">{esc(u)}</span></div>' for t, u in links)
@@ -571,6 +593,7 @@ def plain(s, lang="zh"):
 
 
 def main():
+    ensure_qr()
     for lang in ("zh", "en"):
         ps = pages(lang)
         assert [p["n"] for p in ps] == list(range(1, 23)), "頁碼要 1..22"

@@ -13,12 +13,12 @@
 
 ## 學生怎麼用
 
-1. 登入一個能上傳 PDF 的 AI：AI 筆記本（Gemini Notebook，原名 NotebookLM）、ChatGPT 或 Claude。
-2. 從網站下載財報（官方檔案連結），上傳給它。
-3. 貼提示語 ③，拿到一張每格有頁碼的表；**五個比率自己算**（體檢表範本會算）。
+1. **主線：用你的 AI agent 開資料夾。** 下載這個 repo 的 ZIP（網站首頁有按鈕）、解開，用 Antigravity（File → Open Folder）、ChatGPT 桌面版的 Codex（新增專案 → 選資料夾）或 Claude 桌面版（Code 分頁 → 開啟資料夾）打開 `kit/zh`（英文場 `kit/en`），貼一句「請照這個資料夾的 AGENTS.md 做完 任務.md 的任務一」。agent 會自己照 `data/README.md` 抓財報、做出每格有 PDF 頁碼的表、列出比率算式。
+2. **沒有 agent？** 從網站下載財報，上傳到 ChatGPT 或 Claude 網頁，貼提示語 ③。
+3. 拿到表之後，**五個比率自己再算一次**（體檢表範本會算）——agent 算得快，核對是你的事。
 4. 抽三格回原文查：單位、年度欄、合併還是個體。
-5. 壓力測試：先在紙上動 T 字帳，再貼提示語 ④，把 AI 的每一句標成「表上／算的／推論」。
-6. 交作業附揭露句。
+5. 壓力測試：先在紙上動 T 字帳，再做任務二（或貼提示語 ④），把 AI 的每一句標成「表上／算的／推論」。
+6. 回家作業＝任務三：換成你們挑的兩家銀行。交作業附揭露句。
 
 ## 老師怎麼用
 
@@ -47,7 +47,7 @@
 | `tools/make_site.py` | 產 `docs/` 網站與 QR（QR 程式產生＋反向解碼驗證） |
 | `check_econ2.py` | 機械檢查：數字全在 json、提示語逐字相同、零外部資源、無簡體與大陸用語 |
 | `student/`、`elearn/` | 產出的學生檔與 e學苑 可貼文字 |
-| `demo/agent-zh/`、`demo/agent-en/` | 老師台上示範「同一個任務交給桌面 AI agent」的資料夾（規則＋任務；財報自己照 `data/README.md` 下載） |
+| `kit/zh/`、`kit/en/` | **學生用的課程資料夾**：給 agent 的 `AGENTS.md`、`任務.md`（任務一體檢、任務二壓力測試、任務三回家換銀行）、`任務-老師示範.md`（老師台上跑的加碼版：比率圖、備忘、第二來源核對）、`README.md`（三種 agent 怎麼開）、`data/README.md`（財報網址＋sha256，PDF 不進 repo） |
 | `demo/svb/` | 矽谷銀行摘錄頁產生器 |
 | `data/README.md` | 三份官方財報的網址、頁碼與 sha256（PDF 本身不進 repo） |
 

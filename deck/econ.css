@@ -160,4 +160,8 @@ table.ec-tb .q{color:var(--mist); font-size:.88em}
 .ec-svg .val{font-size:16px; font-weight:800; fill:var(--ink)}
 .ec-svg .sml{font-size:13px; fill:var(--mist)}
 
+.ec-qr{flex:0 0 auto; width:128px; height:128px; image-rendering:pixelated; background:#fff; padding:6px; border-radius:8px; border:2px solid var(--line)}
+.ec-url-l{font-family:var(--mono); font-size:17px; color:var(--teal); margin-top:6px; word-break:break-all}
+.ec-card code{font-family:var(--mono); font-size:.9em; background:var(--teal-050); border-radius:4px; padding:0 4px}
+.slide--dark .ec-card code{background:rgba(255,255,255,.12)}
 @media print{.ec-copy{display:none!important}}

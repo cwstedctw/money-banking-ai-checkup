@@ -57,50 +57,53 @@ def worksheet_zh():
            {'t': 'subtitle', 'text': '貨幣銀行學 AI 第二輪｜2026-11-16（一）11:35–12:25｜陳文盛（東華大學通識教育中心）'}]
     bl.append({'t': 'h1', 'text': '0　今天要做什麼'})
     bl.append({'t': 'numbered', 'items': [
-        '把彰化銀行的財報交給 AI，請它把八個數字做成一張表，每一格都寫出在 PDF 第幾頁。',
-        '五個比率你自己算，再挑三格回原文查：單位、年度欄、合併或個體。',
-        '做一次壓力測試：先在紙上用 T 字帳（左邊資產、右邊負債與權益的兩欄記帳格）算，再問 AI，標出它哪一句是從報表來、哪一句是它推的。',
+        '讓你的 AI agent（會自己開檔、做事的 AI 助手）打開課程資料夾，把彰化銀行財報的八個數字做成一張表，每一格都寫出在 PDF 第幾頁、每個比率列出算式。',
+        '五個比率你自己再算一次，挑三格回原文查：單位、年度欄、合併或個體。',
+        '做一次壓力測試：先在紙上用 T 字帳（左邊資產、右邊負債與權益的兩欄記帳格）算，再問 AI，標出它每一句是從報表來的、算出來的，還是它推的。',
     ]})
     bl.append({'t': 'h2', 'text': '要帶什麼'})
     bl.append({'t': 'bullets', 'items': [
-        '筆電或手機（筆電比較好看表格）。',
-        [['一個能上傳 PDF 的 AI，上課前先登入：', {}], ['AI 筆記本', {'b': True}],
-         ['（Gemini Notebook，原名 NotebookLM；網址 notebook.google.com，用 Google 帳號）、或 ChatGPT、或 Claude。三個都能貼同一段提示語。', {}]],
+        [['筆電，裝好一個 AI agent：', {}], ['Antigravity、ChatGPT 桌面版（Codex）或 Claude 桌面版', {'b': True}], ['，哪個有就用哪個。', {}]],
+        '沒有 agent 的話：手機或筆電能開 ChatGPT／Claude 網頁也行（聊天版，見第 1 步備援）。',
         '計算機，或試算表範本「體檢表範本.xlsx」（在 e學苑，填數字比率自動算）。',
     ]})
     bl.append({'t': 'note', 'runs': [['怎麼讀這張表：', {'b': True}],
         ['每一步分四欄——做什麼、打什麼／貼什麼、你應該看到什麼、多久。「多久」寫的是這一步落在 50 分鐘課堂的第幾分鐘；老師沒有量過的就照實寫「沒量過」。卡住了先看第 3 節。', {}]]})
 
     bl.append({'t': 'h1', 'text': '1　步驟 1–7'})
-    W = [2350, 2350, 3366, 1800]
     rows = [
-        [[['1 拿到財報', {'b': True}]],
-         '到 e學苑 本週的標籤下載兩份 PDF；或打開老師分享的共用 AI 筆記本。',
+        [[['1 下載課程資料夾', {'b': True}]],
+         '打開課程網站 https://cwstedctw.github.io/money-banking-ai-checkup/ ，按「下載課程資料夾（ZIP）」（直接下載：https://github.com/cwstedctw/money-banking-ai-checkup/archive/refs/heads/main.zip ），下載後解壓縮。',
          '不用打。',
-         '兩個檔：彰化銀行 114 年度財務報告（10 頁，檔名 CHB-2025-FY-consolidated-financial-report.pdf）、彰化銀行 2025 年年報（123 頁，檔名 CHB-2025-annual-report.pdf）。這次的數字都在「財務報告」那份。',
+         '解開後的 kit/zh/ 裡有 AGENTS.md、任務.md、README.md 和 data/ 資料夾。',
          '第 13 分鐘開始；最好上課前先下載。'],
-        [[['2 上傳給 AI', {'b': True}]],
-         '課內先只上傳 10 頁的財報（CHB-2025-FY-consolidated-financial-report.pdf）；年報（123 頁）回家做經營方式時再傳。AI 筆記本：新筆記本 → 新增來源 → 上傳。ChatGPT／Claude：對話框旁的迴紋針 → 選檔。',
-         '不用打。',
-         '來源清單（或對話框上方）出現財報的檔名。用共用筆記本的人，左邊來源已經有了。',
-         '看網路速度，沒量過。'],
-        [[['3 貼提示語 ③', {'b': True}]],
-         '複製第 2 節「提示語 ③」整段，貼上、送出。',
+        [[['2 用 agent 打開 kit/zh', {'b': True}]],
+         'Antigravity：File → Open Folder → 選 kit/zh。ChatGPT 桌面版（Codex）：新增專案 → 選資料夾 kit/zh。Claude 桌面版：Code 分頁 → 開啟資料夾 kit/zh。打開後貼右邊那一句。',
+         '請照這個資料夾的 AGENTS.md 做完 任務.md 的任務一',
+         'agent 先去抓財報（或請你把 PDF 放進 data/），然後產出 成品/體檢表.md——每格有 PDF 頁碼、每個比率有算式。',
+         'agent 抓檔、做表的時間沒量過。'],
+        [[['備援：聊天版', {'b': True}]],
+         '沒有 agent：從課程網站下載 10 頁的財報（CHB-2025-FY-consolidated-financial-report.pdf），上傳到 ChatGPT 或 Claude 網頁（對話框旁的迴紋針 → 選檔）。年報（123 頁）回家做經營方式時再傳。',
          '提示語 ③（全文在第 2 節）。',
-         '一張表：八個數字，每一格後面有 PDF 頁碼和科目原文；最後一句說是合併還是個體、哪一年的欄。AI 筆記本的回答旁有出處小標，點了會跳回原文那一頁。',
+         '一張表：八個數字，每一格後面有 PDF 頁碼和科目原文；最後一句說是合併還是個體、哪一年的欄。',
          '等 AI 做表，沒量過。'],
+        [[['3 核對 agent 的表', {'b': True}]],
+         '打開 成品/體檢表.md（聊天版的人：看貼完提示語 ③ 拿到的表）。逐格看有沒有頁碼、比率有沒有算式。',
+         '不用打。',
+         '一張表、每格有頁碼、比率有算式；沒有頁碼的格先標起來。',
+         '做到第 28 分鐘（含第 4 步）。'],
         [[['4 自己算五個比率', {'b': True}]],
          '把 AI 表上的數字抄進附表一「體檢表」，自己算；或打開「體檢表範本.xlsx」填分子、分母，比率自動算。證券投資＝三行金融資產相加（財報沒有「證券投資」這一列）。',
          '計算機：分子 ÷ 分母 × 100。',
          '五個百分比，每個都寫了分子、分母和 PDF 頁碼。跟同學不一樣先別改，第 5 步回原文查。',
-         '步驟 1–4 做到第 28 分鐘。'],
+         '做到第 28 分鐘。'],
         [[['5 抽三格回原文', {'b': True}]],
          '兩人一組。打開 PDF 翻到 AI 說的那一頁，各挑三格核對：單位（千元）、年度欄（114 年，不是 113 年）、合併或個體。',
          '不用打。',
          '附表三「抽查紀錄」填好三列；找到錯的舉手。',
          '第 28–35 分鐘。'],
         [[['6 壓力測試', {'b': True}]],
-         '先在附表二的 T 字帳手算：明天一成存款被提走，先用「現金及約當現金」和「存放央行及拆借銀行同業」付，夠不夠？再貼提示語 ④。',
+         '先在附表二的 T 字帳手算：明天一成存款被提走，先用「現金及約當現金」和「存放央行及拆借銀行同業」付，夠不夠？再接著同一個對話貼提示語 ④（用 agent 的人也可以說「做 任務.md 的任務二」）。',
          '提示語 ④（全文在第 2 節）。',
          'AI 列出 T 字帳、手上的錢夠不夠、五個新比率。你在它每一句旁標「表上」「算的」或「推論」，再拿自己算的對。',
          '第 35–44 分鐘；紙上先算 3 分鐘。'],
@@ -110,17 +113,18 @@ def worksheet_zh():
          '一句完整的揭露句；回家作業也要附。',
          '第 44–50 分鐘。'],
     ]
-    bl.append({'t': 'table', 'widths': [1300, 2950, 1250, 3266, 1100],
+    bl.append({'t': 'table', 'widths': [1200, 2750, 1750, 3166, 1000],
                'header': ['步驟', '做什麼', '打什麼／貼什麼', '你應該看到', '多久'], 'rows': rows})
 
     bl.append({'t': 'h1', 'text': '2　要貼的提示語（一字不漏，整段複製）'})
-    bl.append({'t': 'p', 'runs': '三個 AI 都能貼。提示語 ③ 在第 3 步貼；提示語 ④ 要接在同一個對話裡（它會用到上面那張表），第 6 步貼。'})
+    bl.append({'t': 'p', 'runs': '用 agent 的人：任務.md 的任務一、任務二就是這兩段，不必另外貼。用聊天版的人：提示語 ③ 在備援那一步貼；提示語 ④ 要接在同一個對話裡（它會用到上面那張表），第 6 步貼。ChatGPT、Claude 都能貼。'})
     bl.append({'t': 'prompt', 'label': '提示語 ③（銀行體檢）', 'lines': P[('zh', '③')], 'key': ('zh', '③')})
     bl.append({'t': 'prompt', 'label': '提示語 ④（壓力測試）', 'lines': P[('zh', '④')], 'key': ('zh', '④')})
 
     bl.append({'t': 'h1', 'text': '3　卡住了'})
     bl.append({'t': 'bullets', 'items': [
-        [['AI 筆記本開不了（學校帳號被擋、登不進去）', {'b': True}], ['：換 ChatGPT 或 Claude，上傳同一份 PDF、貼同一段提示語。', {}]],
+        [['agent 開不了或一直轉', {'b': True}], ['：換聊天版——ChatGPT 或 Claude 網頁上傳 10 頁財報、貼提示語 ③。', {}]],
+        [['agent 說抓不到 PDF', {'b': True}], ['：自己從課程網站下載財報，放進 kit/zh/data/，再叫它重做。', {}]],
         [['數字找不到', {'b': True}], ['：先看 AI 說的是第幾頁；再確認你打開的是「財務報告」（10 頁），不是「年報」（123 頁）——年報裡沒有完整的合併資產負債表。合併資產負債表在財務報告 PDF 第 1 頁（頁面上印的頁碼是 8）。', {}]],
         [['AI 說「找不到」', {'b': True}], ['：它可能是對的。例如財報沒有「證券投資」這一列，要三行金融資產自己相加。翻到那一頁自己看。', {}]],
         [['比率跟同學差很多', {'b': True}], ['：最常見的四種錯——三行金融資產只加了一行、抄到 113 年那一欄、把千元當成元、拿到金控的報表。', {}]],
@@ -171,15 +175,14 @@ def worksheet_en():
            {'t': 'subtitle', 'text': 'Money and Banking, AI session 2 | 2026-11-18 (Wed) 11:00–11:50 | Wen-Sheng Chen (Center for General Education, National Dong Hwa University)'}]
     bl.append({'t': 'h1', 'text': '0  What we do today'})
     bl.append({'t': 'numbered', 'items': [
-        'Hand JPMorgan Chase’s annual report to an AI and ask it for a table of nine numbers, each with the page it came from.',
-        'Compute the five ratios yourself, then pick three cells and check them in the original: units, year column, consolidated or not.',
-        'Run one stress test: work it out first on paper with T-accounts (a two-column sheet: assets on the left, liabilities and equity on the right), then ask the AI and mark which of its sentences come from the statement and which are its own inference.',
+        'Let your AI agent (an AI assistant that opens files and does the work itself) open the course folder and build a table of nine numbers from JPMorgan Chase’s annual report, with the PDF page for every cell and the formula for every ratio.',
+        'Compute the five ratios again yourself, then pick three cells and check them in the original: units, year column, consolidated or not.',
+        'Run one stress test: work it out first on paper with T-accounts (a two-column sheet: assets on the left, liabilities and equity on the right), then ask the AI and mark whether each of its sentences is on the statement, calculated, or its own inference.',
     ]})
     bl.append({'t': 'h2', 'text': 'What to bring'})
     bl.append({'t': 'bullets', 'items': [
-        'A laptop or a phone (a laptop makes the tables easier to read).',
-        [['An AI that can take a PDF upload, logged in before class: ', {}], ['Gemini Notebook', {'b': True}],
-         [' (formerly NotebookLM; notebook.google.com, with a Google account), or ChatGPT, or Claude. The same prompt works in all three.', {}]],
+        [['A laptop with one AI agent installed: ', {}], ['Antigravity, ChatGPT desktop (Codex) or Claude desktop (Code tab)', {'b': True}], [' — whichever you have.', {}]],
+        'No agent? A phone or laptop that can open ChatGPT or Claude on the web also works (the chat version; see the fallback after step 2).',
         'A calculator, or the spreadsheet “checkup-template.xlsx” (on the course e-Learning site; type the numbers and the ratios compute themselves).',
     ]})
     bl.append({'t': 'note', 'runs': [['How to read the step table: ', {'b': True}],
@@ -187,33 +190,38 @@ def worksheet_en():
 
     bl.append({'t': 'h1', 'text': '1  Steps 1–7'})
     rows = [
-        [[['1 Get the report', {'b': True}]],
-         'Download the PDF from this week’s section on e-Learning, or open the shared notebook the teacher sends you.',
+        [[['1 Download the course folder', {'b': True}]],
+         'Open the course website https://cwstedctw.github.io/money-banking-ai-checkup/ , click “Download the course folder (ZIP)” (direct link: https://github.com/cwstedctw/money-banking-ai-checkup/archive/refs/heads/main.zip ), then unzip it.',
          'Nothing to type.',
-         'One file: JPMorgan Chase & Co. 2025 Annual Report, 364 pages (JPM-2025-annual-report.pdf). The balance sheet is on PDF page 199, which is printed as page 167. The book has two page numberings — always say which one you mean.',
+         'In the unzipped kit/en/ you see AGENTS.md, TASK.md, README.md and a data/ folder.',
          'From minute 13; better to download before class.'],
-        [[['2 Upload it to the AI', {'b': True}]],
-         'Gemini Notebook: New notebook → Add source → Upload. ChatGPT / Claude: the paper-clip next to the chat box → choose the file.',
-         'Nothing to type.',
-         'The file name appears in the source list (or above the chat box). If 364 pages will not upload, give it only PDF page 199 (print that page to its own PDF), or switch to Gemini Notebook.',
-         'Depends on the network; not timed.'],
-        [[['3 Paste Prompt ③', {'b': True}]],
-         'Copy all of Prompt ③ from section 2, paste it, send.',
+        [[['2 Open kit/en with your agent', {'b': True}]],
+         'Antigravity: File → Open Folder → choose kit/en. ChatGPT desktop (Codex): new project → choose the folder kit/en. Claude desktop: Code tab → open folder kit/en. Then paste the sentence on the right.',
+         'Follow AGENTS.md in this folder and complete Task 1 in TASK.md.',
+         'The agent first fetches the annual report (or asks you to put the PDF into data/), then writes a check-up table file — a page number for every cell and a formula for every ratio. README.md says where the file is saved.',
+         'Fetching and table-making by the agent: not timed.'],
+        [[['Fallback: chat version', {'b': True}]],
+         'No agent: download the annual report from the course website and upload it to ChatGPT or Claude on the web (the paper-clip next to the chat box → choose the file). If 364 pages will not upload, give it only PDF page 199 (print that page to its own PDF).',
          'Prompt ③ (full text in section 2).',
-         'A table of nine numbers; after each one, the PDF page, the printed page and the line name as printed; a last sentence on which year column and whether it is consolidated. In Gemini Notebook each answer has small source markers that jump back to the page.',
+         'A table of nine numbers; after each one, the PDF page, the printed page and the line name as printed; a last sentence on which year column and whether it is consolidated.',
          'Waiting for the AI; not timed.'],
+        [[['3 Check the agent’s table', {'b': True}]],
+         'Open the agent’s table file (chat version: the table you got from Prompt ③). Go cell by cell: is there a page number, does each ratio show its formula? The balance sheet is on PDF page 199, printed as page 167 — the book has two page numberings, so always say which one you mean.',
+         'Nothing to type.',
+         'A table with a page for every cell and a formula for every ratio; mark any cell without a page.',
+         'Until minute 28 (with step 4).'],
         [[['4 Compute the five ratios', {'b': True}]],
          'Copy the numbers into Table 1 “Check-up table” and compute; or open “checkup-template.xlsx”, type numerator and denominator, and the ratio computes itself. Securities = “Investment securities, net” (trading assets not included).',
          'Calculator: numerator ÷ denominator × 100.',
          'Five percentages, each with its numerator, denominator and page. If yours differs from a classmate’s, do not change it yet — step 5 checks the original.',
-         'Steps 1–4 run until minute 28.'],
+         'Until minute 28.'],
         [[['5 Check three cells', {'b': True}]],
          'In pairs. Open the PDF at the page the AI gave and check three cells each: units (US$ millions), year column (2025, not 2024), consolidated or not, and PDF page vs printed page.',
          'Nothing to type.',
          'Table 3 “Spot-check log” has three rows filled in. Found a mistake? Raise your hand.',
          'Minutes 28–35.'],
         [[['6 Stress test', {'b': True}]],
-         'First do the T-accounts in Table 2 by hand: 10% of deposits leave tomorrow and the bank pays first out of “Cash and due from banks” and “Deposits with banks”. Is it enough? Then paste Prompt ④.',
+         'First do the T-accounts in Table 2 by hand: 10% of deposits leave tomorrow and the bank pays first out of “Cash and due from banks” and “Deposits with banks”. Is it enough? Then paste Prompt ④ in the same chat (with an agent you can also say “do Task 2 in TASK.md”).',
          'Prompt ④ (full text in section 2).',
          'The AI lists the T-accounts, whether the cash is enough, and the five new ratios. Mark each of its sentences “on the statement”, “calculated” or “inference”, then compare with your own numbers.',
          'Minutes 35–44; 3 minutes on paper first.'],
@@ -223,18 +231,19 @@ def worksheet_en():
          'One complete disclosure sentence; the homework needs one too.',
          'Minutes 44–50.'],
     ]
-    bl.append({'t': 'table', 'widths': [1300, 2950, 1250, 3266, 1100],
+    bl.append({'t': 'table', 'widths': [1200, 2750, 1750, 3166, 1000],
                'header': ['Step', 'What to do', 'Type / paste', 'You should see', 'How long'], 'rows': rows})
 
     bl.append({'t': 'h1', 'text': '2  Prompts to paste (word for word; copy the whole block)'})
-    bl.append({'t': 'p', 'runs': 'They work in all three AIs. Paste Prompt ③ at step 3. Paste Prompt ④ in the same chat at step 6 — it builds on the table above.'})
+    bl.append({'t': 'p', 'runs': 'With an agent: Task 1 and Task 2 in TASK.md are these two prompts, so you do not paste them. With the chat version: paste Prompt ③ at the fallback step, and Prompt ④ in the same chat at step 6 — it builds on the table above. Both ChatGPT and Claude take them.'})
     bl.append({'t': 'prompt', 'label': 'Prompt ③ (Bank check-up)', 'lines': P[('en', '③')], 'key': ('en', '③')})
     bl.append({'t': 'prompt', 'label': 'Prompt ④ (Stress test)', 'lines': P[('en', '④')], 'key': ('en', '④')})
 
     bl.append({'t': 'h1', 'text': '3  If you get stuck'})
     bl.append({'t': 'bullets', 'items': [
-        [['Gemini Notebook will not open (school account blocked, cannot sign in)', {'b': True}], [': switch to ChatGPT or Claude, upload the same PDF, paste the same prompt.', {}]],
-        [['The upload fails', {'b': True}], [': 364 pages may be too large for some chat tools. Give it only PDF page 199, or use Gemini Notebook.', {}]],
+        [['The agent will not open or keeps spinning', {'b': True}], [': switch to the chat version — upload the report to ChatGPT or Claude on the web and paste Prompt ③.', {}]],
+        [['The agent says it cannot get the PDF', {'b': True}], [': download the annual report from the course website yourself, put it in kit/en/data/, and ask it again.', {}]],
+        [['The upload fails (chat version)', {'b': True}], [': 364 pages may be too large for some chat tools. Give it only PDF page 199.', {}]],
         [['A number cannot be found', {'b': True}], [': look at the page the AI named, and check which numbering it used — PDF page 199 is printed as page 167.', {}]],
         [['The AI says “not found”', {'b': True}], [': it may be right. Open the page and look yourself.', {}]],
         [['Your ratios differ a lot from a classmate’s', {'b': True}], [': the usual four causes are PDF page vs printed page, gross loans (“Loans”) instead of “Loans, net of allowance for loan losses”, trading assets counted as securities or not, and copying the 2024 column.', {}]],
@@ -281,7 +290,7 @@ def homework_zh():
           {'t': 'h2', 'text': '做什麼（四件事）'},
           {'t': 'numbered', 'items': [
               [['挑兩家銀行：一家台灣、一家外國。', {'b': True}], ['台灣的要銀行本身的財報（公開資訊觀測站或銀行官網），不要金控的合併報表；外國的找年報或 10-K（公司官網或 SEC EDGAR）。', {}]],
-              [['第一張表：', {'b': True}], ['照課堂的提示語 ③，兩家各做五個比率，每一格附 PDF 頁碼；比率自己算。', {}]],
+              [['第一張表：', {'b': True}], ['用 agent 開同一個課程資料夾做 任務.md 的任務三（把兩家的財報 PDF 放進 data/，或把官方網址給 agent），兩家各做五個比率，每格附 PDF 頁碼；再用體檢表範本自己算一次對照。沒有 agent 就用聊天版貼提示語 ③，自己算。', {}]],
               [['抽三格回原文查', {'b': True}], ['，寫下結果：對或錯、單位、年度、合併或個體。', {}]],
               [['深度研究初稿：', {'b': True}], ['用 AI 的深度研究功能（ChatGPT、Gemini、Claude 都有）寫兩家經營方式的比較初稿（提示語 ⑤）；挑三句回來源查，標「有出處／沒出處」。', {}]],
           ]},
@@ -300,7 +309,7 @@ def homework_en():
           {'t': 'h2', 'text': 'What to do (four things)'},
           {'t': 'numbered', 'items': [
               [['Pick two banks: one in Taiwan, one abroad.', {'b': True}], [' For the Taiwan bank, use the bank’s own financial report (Market Observation Post System, or the bank’s website), not the financial holding company’s consolidated report. For the foreign bank, use its annual report or 10-K (company website or SEC EDGAR).', {}]],
-              [['First table:', {'b': True}], [' following Prompt ③ from class, compute the five ratios for both banks, with the PDF page for every cell. Compute the ratios yourselves.', {}]],
+              [['First table:', {'b': True}], [' open the same course folder with your agent and do Task 3 in TASK.md (put both banks’ report PDFs into data/, or give the agent the official links). Compute the five ratios for both banks with the PDF page for every cell, then compute them once more yourselves with the check-up template. No agent? Use the chat version with Prompt ③ and compute the ratios yourselves.', {}]],
               [['Check three cells against the original', {'b': True}], [' and write down the result: right or wrong, units, year, consolidated or not.', {}]],
               [['Deep-research draft:', {'b': True}], [' use an AI’s deep-research mode (ChatGPT, Gemini and Claude all have one) to draft a comparison of how the two banks make money (Prompt ⑤). Pick three sentences, check them against the sources, and mark each “sourced” or “not sourced”.', {}]],
           ]},
@@ -681,6 +690,7 @@ def elearn_md():
 
 今天用 AI 幫一家銀行做體檢：把彰化銀行的財報交給 AI，要它每一句都指回頁碼，五個比率自己算，再回原文抽查。
 
+- 課程網站（下載課程資料夾、財報、所有檔案）：https://cwstedctw.github.io/money-banking-ai-checkup/
 - 投影片 PDF：`deck-zh.pdf`
 - 學生練習單：`學生練習單-銀行體檢.docx`
 - 體檢表範本：`體檢表範本.xlsx`
@@ -688,11 +698,11 @@ def elearn_md():
 - 彰化銀行 2025 年年報（123 頁）：`CHB-2025-annual-report.pdf`
 - 回家作業卡：`回家作業卡.docx`
 
-請帶筆電或手機，先登入 AI 筆記本（Google 帳號）或 ChatGPT／Claude。
+請帶筆電、先裝好一個 AI agent（Antigravity、ChatGPT 桌面版或 Claude 桌面版）；沒有的話用手機或筆電登入 ChatGPT／Claude 網頁。
 
 ### 作業說明：第二次 AI 專題的第一張表
 
-挑兩家銀行，一家台灣、一家外國（台灣的用銀行本身的財報，不用金控的合併報表；外國的用年報或 10-K）。照課堂提示語 ③ 兩家各做五個比率，每格附 PDF 頁碼、比率自己算；抽三格回原文查；再用 AI 的深度研究功能寫兩家經營方式的比較初稿（提示語 ⑤），挑三句回來源查。把提示語 ③ 裡的銀行名、報表日期、科目名換成那家財報上的字；淨放款與證券投資各算了哪幾列要寫明。深度研究功能不能用的話，改用一般對話，並附上你自己找到的來源。
+挑兩家銀行，一家台灣、一家外國（台灣的用銀行本身的財報，不用金控的合併報表；外國的用年報或 10-K）。用 agent 開課程資料夾做 任務.md 的任務三（沒有 agent 就用聊天版貼提示語 ③），兩家各做五個比率、每格附 PDF 頁碼，再用體檢表範本自己算一次；抽三格回原文查；再用 AI 的深度研究功能寫兩家經營方式的比較初稿（提示語 ⑤），挑三句回來源查。把提示語 ③ 裡的銀行名、報表日期、科目名換成那家財報上的字；淨放款與證券投資各算了哪幾列要寫明。深度研究功能不能用的話，改用一般對話，並附上你自己找到的來源。
 
 交：表格＋抽查紀錄＋初稿與三句查核＋揭露句。截止日：＿＿＿＿。
 
@@ -702,17 +712,18 @@ def elearn_md():
 
 Today we give a bank a check-up with AI: hand JPMorgan Chase’s annual report to an AI, make it cite a page for every sentence, compute the five ratios yourself, and spot-check against the original.
 
+- Course website (course folder, reports, all files): https://cwstedctw.github.io/money-banking-ai-checkup/
 - Slides (PDF): `deck-en.pdf`
 - Student worksheet: `Student-Worksheet-Bank-Checkup.docx`
 - Check-up template: `checkup-template.xlsx`
 - JPMorgan Chase & Co. 2025 Annual Report (364 pages): `JPM-2025-annual-report.pdf`
 - Homework card: `Homework-Card.docx`
 
-Please bring a laptop or phone, and log in to Gemini Notebook (Google account) or ChatGPT / Claude before class.
+Please bring a laptop with one AI agent installed (Antigravity, ChatGPT desktop or Claude desktop); if you have none, log in to ChatGPT or Claude on the web with a phone or laptop.
 
 ### Assignment: the first table of AI Project 2
 
-Pick two banks, one in Taiwan and one abroad (for Taiwan, the bank’s own financial report, not the holding company’s consolidated report; abroad, the annual report or 10-K). Following Prompt ③ from class, compute the five ratios for both, with the PDF page for every cell; compute the ratios yourselves; check three cells against the original. Then use an AI’s deep-research mode to draft a comparison of how the two banks make money (Prompt ⑤) and check three of its sentences against the sources. Replace the bank name, statement date and line names in Prompt ③ with the words printed in that bank’s report, and state which lines you counted as net loans and as securities. If deep-research mode is not available, use a normal chat instead and attach the sources you found yourselves.
+Pick two banks, one in Taiwan and one abroad (for Taiwan, the bank’s own financial report, not the holding company’s consolidated report; abroad, the annual report or 10-K). With your agent, do Task 3 in TASK.md in the course folder (no agent: the chat version with Prompt ③): the five ratios for both banks with the PDF page for every cell, then compute them once more yourselves with the check-up template; check three cells against the original. Then use an AI’s deep-research mode to draft a comparison of how the two banks make money (Prompt ⑤) and check three of its sentences against the sources. Replace the bank name, statement date and line names in Prompt ③ with the words printed in that bank’s report, and state which lines you counted as net loans and as securities. If deep-research mode is not available, use a normal chat instead and attach the sources you found yourselves.
 
 Hand in: the table + the spot-check log + the draft with its three checked sentences + the disclosure sentence. Due: ________.
 """
