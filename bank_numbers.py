@@ -71,12 +71,20 @@ JPM = {
     "statement": "Consolidated balance sheets",
     "source": {
         "file": "data/JPM-2025-annual-report.pdf",
-        "title": "JPMorgan Chase & Co. 2025 Annual Report (364 pages; contains the 2025 Form 10-K)",
+        "title": "JPMorgan Chase & Co. 2025 Annual Report (364 pages; PDF pages 75–359 reprint pages 43–327 of the 2025 Form 10-K)",
         "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
         "sha256": "2a3ee9733eafd01e7667c5540fbd797c4cc688d14f00638a877f5623d1316d9d",
         "pdf_page": 199, "printed_page": "167 (Form 10-K numbering)",
         "cross_check": "SEC EDGAR XBRL companyfacts, CIK 19617, FY2025 10-K filed 2026-02-13 (accession 0001628280-26-008131): identical",
         "edgar_url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+        # 2026-11-15 逐頁掃頁尾查的。PDF 第 75 頁（10-K 第 43 頁）目錄原文：
+        # "Note: The following pages from JPMorgan Chase & Co.'s 2025 Form 10-K are not included herein: 1-42, 328"
+        "structure": {
+            "front_section_pdf_pages": "1-74", "front_section_note": "letters to shareholders etc.; own page numbers (PDF page 74 is printed 72)",
+            "form10k_pdf_pages": "75-359", "form10k_pages_included": "43-327", "form10k_pages_not_included": "1-42, 328",
+            "form10k_pdf_offset": 32, "toc_note_pdf_page": 75, "back_matter_pdf_pages": "360-364",
+            "form10k_what": "the annual report a U.S. listed company must file with the SEC; the pages reprinted here are the MD&A, the audited financial statements and the notes",
+        },
     },
     "extra_pages": {
         "selected_balance_sheet_analysis": {"pdf_page": 87, "printed_page": "55", "what": "Consolidated balance sheets analysis (same line items with % change)"},

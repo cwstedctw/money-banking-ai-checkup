@@ -19,3 +19,10 @@ __pycache__/
 /deck-zh.pdf
 /deck-en.pdf
 /demo/svb/*.pdf
+
+# 課程資料夾裡任何人放進去的 PDF（財報、課本章節）與 agent 的成品都不進 repo；課本有著作權
+kit/**/*.pdf
+kit/*/data/*
+!kit/*/data/README.md
+kit/*/成品*/
+kit/*/output*/

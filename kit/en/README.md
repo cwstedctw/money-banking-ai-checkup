@@ -18,6 +18,12 @@ Use whichever you have:
 | ChatGPT desktop (Codex) | New project → choose folder `kit/en` |
 | Claude desktop | Code tab → Open folder → choose `kit/en` |
 
+### Warm-up: study guide (Prompt ①, minutes 2–9 of the class)
+
+Put your own copy of textbook Chapter 9 (PDF) into this folder and paste Prompt ① from slide 4 (the “Prompts ①–⑤” page on the website has a Copy button). The agent draws a chapter map and writes five questions with a page for each; turn to one of those pages in your textbook and check it.
+
+The textbook is copyrighted: keep the file on your own computer, do not share it or put it online; you can take it out of the folder when you are done.
+
 ## 3. Paste this sentence
 
 > Follow AGENTS.md in this folder and complete Task 1 in TASK.md.

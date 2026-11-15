@@ -49,7 +49,7 @@ SITE_URLS = {"https://cwstedctw.github.io/money-banking-ai-checkup/",   # 課程
              "https://github.com/cwstedctw/money-banking-ai-checkup/archive/refs/heads/main.zip"}   # repo 與 ZIP（§〇 G）
 ALLOWED_YEARS = set(range(2021, 2027))
 ALLOWED_MISC = {1280, 720}
-ALLOWED_SESSION = {1116, 1118}   # 場次日期 MMDD（本夾名 -1116、交付夾 第二輪-1116-1118），不是金額
+ALLOWED_SESSION = {1115, 1116, 1118}   # 日期 MMDD：場次 1116、1118（本夾名、交付夾名）與彩排日 1115（成品-彩排/*-headless-1115），不是金額
 
 out = {"PASS": [], "WARN": [], "FAIL": [], "INFO": []}
 

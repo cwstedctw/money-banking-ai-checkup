@@ -300,8 +300,8 @@ def pages(lang):
 
     # p4 提示語 ①
     add(4, J("課文整理 · 提示語 ①", "STUDY GUIDE · PROMPT ①"), J("提示語 ①：把一章講義交給 AI", "Prompt ①: hand one chapter of notes to the AI"),
-        '<div class="ec-side">' + J("把王老師給的那一章講義（PDF）放進資料夾給 agent，或上傳到聊天版；要它每一題附頁碼。",
-                                    "Put the chapter of lecture notes (PDF) from Prof. Wang into the folder for your agent, or upload it to the chat version; make it give a page for every question.")
+        '<div class="ec-side">' + J("今天的「講義」是課本第 9 章〈Banking and the Management of Financial Institutions〉：把你自己的電子檔放進資料夾給 agent，或上傳到聊天版；要它每一題附頁碼。",
+                                    "Today’s “notes” are textbook Chapter 9, “Banking and the Management of Financial Institutions”: put your own copy (PDF) into the folder for your agent, or upload it to the chat version; make it give a page for every question.")
         + "</div>" + prompt_box(lang, 1),
         J("照頁碼翻回去對一題：對的舉手", "Turn to the page it cites and check one question: hands up if it matches"), "hand")
 
@@ -360,11 +360,13 @@ def pages(lang):
                  + "</div>")
     else:
         s1 = JPM["source"]
-        body9 = ('<div class="ec-lead">Why this one: a U.S. bank whose annual report carries the full Form 10-K, so the balance sheet is in the same file.</div>'
+        inc = s1["structure"]["form10k_pages_included"].replace("-", "–")   # 10-K 第 43–327 頁（PDF 第 75 頁目錄原文）
+        body9 = (f'<div class="ec-lead">Why this one: its Annual Report reprints the financial pages ({inc}) of its Form 10-K, the yearly report U.S. listed companies file with the SEC, so the balance sheet is in the same file.</div>'
                  '<div class="ec-cols">'
                  + card("The file: 2025 Annual Report", f"{pages_in(s1['title'])} pages<br>Consolidated balance sheets on PDF page {s1['pdf_page']}"
                         f"<div class=\"ec-note\">= page {pg(s1['printed_page'])} in the 10-K’s own numbering</div>", "gold")
-                 + card("Two page numberings", "The front part and the 10-K each number their own pages. <b>Always say which one.</b>", "red")
+                 + card("Two page numberings", "The front part and the 10-K pages each have their own numbering. <b>Always say which one.</b>"
+                        f"<div class=\"ec-note\">To jump there, type {s1['pdf_page']} in the PDF page box</div>", "red")
                  + card("Two routes (US$ million)", "<b>Agent</b>: it fetches the file itself from <code>data/README.md</code>"
                         f"<div style=\"margin-top:4px\"><b>Chat</b>: upload the PDF, or only PDF page {s1['pdf_page']} if it is too big</div>")
                  + "</div>")

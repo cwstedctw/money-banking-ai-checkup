@@ -159,7 +159,7 @@ def index_html():
 </ul>
 <h3 style="margin-top:14px;font-size:1rem">Reports (official files)</h3>
 <ul class="links">
-{a(official(jpm), "JPMorgan Chase 2025 Annual Report", "Official PDF, 364 pages (contains the Form 10-K)")}
+{a(official(jpm), "JPMorgan Chase 2025 Annual Report", "Official PDF, 364 pages; PDF pages 75–359 reprint Form 10-K pages 43–327")}
 {a("files/SVB-2022-balance-sheet-excerpt.pdf", "SVB balance-sheet excerpt (one page)", "Re-typeset from the FY2022 Form 10-K, page 95; opening case")}
 {a(svb["source"]["url"], "SVB Financial Group Form 10-K, FY2022", "SEC EDGAR, web version")}
 </ul></div>
@@ -186,11 +186,11 @@ Put this one link on your LMS. Teacher-only files (answer keys) are not on this 
 
 def prompts_html(lang):
     zh = lang == "zh"
-    labels = ({1: ("提示語 ①", "課文整理：上傳老師給的一章講義後貼"), 2: ("提示語 ②", "矽谷銀行三題（老師示範用；自己想試就上傳摘錄頁再貼）"),
+    labels = ({1: ("提示語 ①", "課文整理：把課本第 9 章（你自己的電子檔）交給 AI 後貼"), 2: ("提示語 ②", "矽谷銀行三題（老師示範用；自己想試就上傳摘錄頁再貼）"),
                3: ("提示語 ③", "銀行體檢：上傳財報後貼，拿到有頁碼的表"), 4: ("提示語 ④", "壓力測試：接在提示語 ③ 的同一個對話裡貼"),
                5: ("提示語 ⑤", "回家：深度研究兩家銀行的經營方式")}
               if zh else
-              {1: ("Prompt ①", "Study guide: paste after uploading the chapter notes"), 2: ("Prompt ②", "Silicon Valley Bank, three questions (teacher demo; try it with the excerpt page)"),
+              {1: ("Prompt ①", "Study guide: paste after giving the AI your own copy of textbook Chapter 9"), 2: ("Prompt ②", "Silicon Valley Bank, three questions (teacher demo; try it with the excerpt page)"),
                3: ("Prompt ③", "Bank check-up: paste after uploading the report; you get a table with pages"), 4: ("Prompt ④", "Stress test: paste in the same conversation as Prompt ③"),
                5: ("Prompt ⑤", "Homework: deep research on how two banks make money")})
     cards = []

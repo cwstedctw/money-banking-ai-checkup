@@ -36,7 +36,7 @@
 **壓力測試 B_rate_shock_5pct**：{"scenario": "bond prices -5%", "recognized_losses": {"透過損益按公允價值衡量之金融資產": 6215630, "透過其他綜合損益按公允價值衡量之金融資產": 15954103}, "recognized_total": 22169733, "hidden_losses_not_on_balance_sheet": {"按攤銷後成本衡量之債務工具投資": 27121230}, "hidden_total": 27121230, "equity_after_recognized": 198157322, "r5_after_recognized": 5.91, "equity_if_hidden_also_marked": 171036092, "r5_if_hidden_also_marked": 5.14, "ratios_after_recognized": {"r1": 61.64, "r2": 28.72, "r3": 76.29, "r4": 85.86, "r5": 5.91}, "ratios_if_hidden_also_marked": {"r1": 62.14, "r2": 28.14, "r3": 76.29, "r4": 85.86, "r5": 5.14}}
 
 ## JPM：摩根大通（JPMorgan Chase & Co.）（December 31, 2025；US$ million）
-來源：JPMorgan Chase & Co. 2025 Annual Report (364 pages; contains the 2025 Form 10-K)；頁碼 PDF 199／紙本 167 (Form 10-K numbering)；交叉驗證：SEC EDGAR XBRL companyfacts, CIK 19617, FY2025 10-K filed 2026-02-13 (accession 0001628280-26-008131): identical
+來源：JPMorgan Chase & Co. 2025 Annual Report (364 pages; PDF pages 75–359 reprint pages 43–327 of the 2025 Form 10-K)；頁碼 PDF 199／紙本 167 (Form 10-K numbering)；交叉驗證：SEC EDGAR XBRL companyfacts, CIK 19617, FY2025 10-K filed 2026-02-13 (accession 0001628280-26-008131): identical
 
 其他定位（頁碼都查過原檔）：
 - selected_balance_sheet_analysis：PDF 87／紙本 55：Consolidated balance sheets analysis (same line items with % change)
