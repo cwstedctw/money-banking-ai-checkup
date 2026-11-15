@@ -14,8 +14,8 @@ Use whichever you have:
 
 | Agent | How to open this folder |
 |---|---|
-| Antigravity | File → Open Folder → choose `kit/en` |
-| ChatGPT desktop (Codex) | New project → choose folder `kit/en` |
+| Antigravity | File → Create Project → Add Folder → choose `kit/en` → Next (older versions: File → Open Folder) |
+| ChatGPT desktop (Codex) | File → New project → add the folder `kit/en` → create the project → trust the folder |
 | Claude desktop | Code tab → Open folder → choose `kit/en` |
 
 ### Warm-up: study guide (Prompt ①, minutes 2–9 of the class)
@@ -30,7 +30,7 @@ The textbook is copyrighted: keep the file on your own computer, do not share it
 
 > Follow AGENTS.md in this folder and complete Task 1 in TASK.md.
 
-If it asks "may I download / run a command?", check that it is the JPMorgan Chase URL in `data/README.md` before you allow it.
+If it asks "may I download / run a command?", check that it is the JPMorgan Chase URL in `data/README.md` before you allow it. ChatGPT desktop asks once (run it once); Antigravity asks before each download (choose “Yes, allow this time”, then Submit). Task 1 takes a few minutes.
 
 ## 4. What you should see
 

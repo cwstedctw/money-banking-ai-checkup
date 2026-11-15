@@ -14,8 +14,8 @@
 
 | agent | 怎麼開這個資料夾 |
 |---|---|
-| Antigravity | File → Open Folder → 選 `kit/zh` |
-| ChatGPT 桌面版（Codex） | 新增專案 → 選資料夾 `kit/zh` |
+| Antigravity | File → Create Project → Add Folder → 選 `kit/zh` → Next（舊版介面是 File → Open Folder） |
+| ChatGPT 桌面版（Codex） | 檔案 → 新增專案 → 按「新增」選資料夾 `kit/zh` → 建立專案 → 信任資料夾 |
 | Claude 桌面版 | Code 分頁 → 開啟資料夾 → 選 `kit/zh` |
 
 ### 暖身：課文整理（提示語 ①，課堂第 2–9 分鐘）
@@ -30,7 +30,7 @@
 
 > 請照這個資料夾的 AGENTS.md 做完 任務.md 的任務一
 
-它問你「可不可以下載／執行指令」時，看清楚是 `data/README.md` 上的彰化銀行網址再按允許。
+它問你「可不可以下載／執行指令」時，看清楚是 `data/README.md` 上的彰化銀行網址再按允許。ChatGPT 桌面版會問一次（按「執行一次」）；Antigravity 每下載一份問一次（選「Yes, allow this time」再按 Submit）。整個任務一大約 3 到 5 分鐘。
 
 ## 4. 你應該看到
 
