@@ -300,8 +300,8 @@ def pages(lang):
 
     # p4 提示語 ①
     add(4, J("課文整理 · 提示語 ①", "STUDY GUIDE · PROMPT ①"), J("提示語 ①：把一章講義交給 AI", "Prompt ①: hand one chapter of notes to the AI"),
-        '<div class="ec-side">' + J("今天的「講義」是課本第 9 章〈Banking and the Management of Financial Institutions〉：把你自己的電子檔放進資料夾給 agent，或上傳到聊天版；要它每一題附頁碼。",
-                                    "Today’s “notes” are textbook Chapter 9, “Banking and the Management of Financial Institutions”: put your own copy (PDF) into the folder for your agent, or upload it to the chat version; make it give a page for every question.")
+        '<div class="ec-side">' + J("今天的「講義」是課本第 9 章〈Banking and the Management of Financial Institutions〉：有電子檔就放進資料夾給 agent，或上傳到聊天版；只有紙本，用手機拍兩三頁交給 AI 也可以。要它每一題附頁碼。",
+                                    "Today’s “notes” are textbook Chapter 9, “Banking and the Management of Financial Institutions”: put your own copy (PDF) into the folder for your agent, or upload it in chat; with a paper book, phone photos of two or three pages also work. Ask it to cite a page for each question.")
         + "</div>" + prompt_box(lang, 1),
         J("照頁碼翻回去對一題：對的舉手", "Turn to the page it cites and check one question: hands up if it matches"), "hand")
 
@@ -361,7 +361,7 @@ def pages(lang):
     else:
         s1 = JPM["source"]
         inc = s1["structure"]["form10k_pages_included"].replace("-", "–")   # 10-K 第 43–327 頁（PDF 第 75 頁目錄原文）
-        body9 = (f'<div class="ec-lead">Why this one: its Annual Report reprints the financial pages ({inc}) of its Form 10-K, the yearly report U.S. listed companies file with the SEC, so the balance sheet is in the same file.</div>'
+        body9 = (f'<div class="ec-lead">Why this one: its Annual Report reprints the financial section (pp. {inc}) of its SEC Form 10-K, so the balance sheet is in the same file.</div>'
                  '<div class="ec-cols">'
                  + card("The file: 2025 Annual Report", f"{pages_in(s1['title'])} pages<br>Consolidated balance sheets on PDF page {s1['pdf_page']}"
                         f"<div class=\"ec-note\">= page {pg(s1['printed_page'])} in the 10-K’s own numbering</div>", "gold")

@@ -22,6 +22,8 @@ Use whichever you have:
 
 Put your own copy of textbook Chapter 9 (PDF) into this folder and paste Prompt ① from slide 4 (the “Prompts ①–⑤” page on the website has a Copy button). The agent draws a chapter map and writes five questions with a page for each; turn to one of those pages in your textbook and check it.
 
+Paper book only: take phone photos of two or three pages and put them into this folder (or upload them in chat); the agent cites the page numbers printed in the book.
+
 The textbook is copyrighted: keep the file on your own computer, do not share it or put it online; you can take it out of the folder when you are done.
 
 ## 3. Paste this sentence
