@@ -1,0 +1,947 @@
+{
+ "generated_by": "bank_numbers.py (2026-11-15 洄瀾)",
+ "ratio_definitions": [
+  {
+   "key": "r1",
+   "zh": "放款 ÷ 總資產",
+   "en": "Loans ÷ Total assets",
+   "ask_zh": "錢主要拿去放款嗎？",
+   "ask_en": "Does the money mainly go into loans?"
+  },
+  {
+   "key": "r2",
+   "zh": "證券投資 ÷ 總資產",
+   "en": "Securities ÷ Total assets",
+   "ask_zh": "買了多少債券？",
+   "ask_en": "How much is parked in securities?"
+  },
+  {
+   "key": "r3",
+   "zh": "放款 ÷ 存款",
+   "en": "Loans ÷ Deposits",
+   "ask_zh": "存放比：存款有多少貸出去？",
+   "ask_en": "Loan-to-deposit ratio: how much of the deposits is lent out?"
+  },
+  {
+   "key": "r4",
+   "zh": "存款 ÷ 總負債",
+   "en": "Deposits ÷ Total liabilities",
+   "ask_zh": "資金靠存款，還是靠借？",
+   "ask_en": "Funded by deposits, or by borrowing?"
+  },
+  {
+   "key": "r5",
+   "zh": "權益 ÷ 總資產",
+   "en": "Equity ÷ Total assets",
+   "ask_zh": "自有資本有多厚？（未按風險加權，不是資本適足率）",
+   "ask_en": "How thick is the equity cushion? (not risk-weighted; not the capital adequacy ratio)"
+  }
+ ],
+ "banks": {
+  "CHB": {
+   "name_zh": "彰化商業銀行（彰銀，2801）",
+   "name_en": "Chang Hwa Commercial Bank (CHB, TWSE 2801)",
+   "date": "2025-12-31（民國 114 年 12 月 31 日）",
+   "unit": "新臺幣千元（NT$ thousand）",
+   "statement": "合併資產負債表（Consolidated balance sheet）",
+   "source": {
+    "file": "data/CHB-2025-FY-consolidated-financial-report.pdf",
+    "title": "彰化銀行 114 年度財務報告（官網「財務報告」頁的摘要版，10 頁）",
+    "url": "https://www.bankchb.com/chb_2a_resource/leap_do/gallery/1775714798658/114年度財報.pdf",
+    "sha256": "27e72e334f13b794fad5ec0c8aa96095195645bec6eaa36656c2d3541abd153f",
+    "pdf_page": 1,
+    "printed_page": "8",
+    "cross_check": "公開資訊觀測站 114Q4 合併資產負債表（twstock 工具，2026-11-15）全部相同"
+   },
+   "source_business": {
+    "file": "data/CHB-2025-annual-report.pdf",
+    "title": "彰化銀行 2025 年年報（股東會年報，123 頁，刊印日期 2026 年 3 月）",
+    "url": "https://www.bankchb.com/chb_2a_resource/leap_do/annual_report_picture/1779097600166/彰化銀行2025年年報.pdf",
+    "sha256": "2d19eb17fb948515b6dfce44c3f9cc7e62a4251c9d97220b7d3f4dda3c2705bb",
+    "business_pdf_page": 82,
+    "business_printed_page": "80",
+    "business_note": "肆、營運概況 一、業務內容（存款業務、放款業務…的比重與變化）；財務狀況摘要在 PDF 第 98 頁（紙本 96）：資產總額 3,377,011,238、負債總額 3,156,684,183、權益總額 220,327,055，跟財報相同"
+   },
+   "securities_components": [
+    "fvtpl",
+    "fvoci",
+    "ac_debt"
+   ],
+   "securities_note": "證券投資＝三行金融資產相加（財報沒有「證券投資」這一列，是我們定義的）",
+   "liquid_components": [
+    "cash",
+    "due_from_cb"
+   ],
+   "prior_year": {
+    "assets": 3172721131,
+    "liabilities": 2971323743,
+    "equity": 201397388,
+    "deposits": 2630356510,
+    "loans": 1967920024
+   },
+   "lines": {
+    "cash": {
+     "label": "現金及約當現金",
+     "value": 38807540
+    },
+    "due_from_cb": {
+     "label": "存放央行及拆借銀行同業",
+     "value": 211749070
+    },
+    "fvtpl": {
+     "label": "透過損益按公允價值衡量之金融資產",
+     "value": 124312609
+    },
+    "fvoci": {
+     "label": "透過其他綜合損益按公允價值衡量之金融資產",
+     "value": 319082057
+    },
+    "ac_debt": {
+     "label": "按攤銷後成本衡量之債務工具投資",
+     "value": 542424600
+    },
+    "loans": {
+     "label": "貼現及放款－淨額",
+     "value": 2067768378
+    },
+    "assets": {
+     "label": "資產總計",
+     "value": 3377011238
+    },
+    "due_to_banks": {
+     "label": "央行及銀行同業存款",
+     "value": 333816006
+    },
+    "deposits": {
+     "label": "存款及匯款",
+     "value": 2710322674
+    },
+    "bank_debentures": {
+     "label": "應付金融債券",
+     "value": 41785176
+    },
+    "liabilities": {
+     "label": "負債總計",
+     "value": 3156684183
+    },
+    "equity": {
+     "label": "權益總計",
+     "value": 220327055
+    }
+   },
+   "base": {
+    "assets": 3377011238,
+    "loans": 2067768378,
+    "securities": 985819266,
+    "deposits": 2710322674,
+    "liabilities": 3156684183,
+    "equity": 220327055
+   },
+   "ratios_pct": {
+    "r1": 61.23,
+    "r2": 29.19,
+    "r3": 76.29,
+    "r4": 85.86,
+    "r5": 6.52
+   },
+   "variants": {
+    "securities_total": 985819266,
+    "r1_vs_prior_year": 62.03
+   },
+   "stress": {
+    "A_deposit_run_10pct": {
+     "scenario": "deposits -10%",
+     "deposit_outflow": 271032267,
+     "liquid_assets_before": 250556610,
+     "liquid_used": 250556610,
+     "shortfall_after_liquid": 20475657,
+     "surplus_after_liquid": 0,
+     "securities_sold_book": 20475657,
+     "loss_to_equity": 0,
+     "t_account": {
+      "assets_down": {
+       "現金及約當現金": null,
+       "存放央行及拆借銀行同業": null,
+       "liquid total used": 250556610,
+       "securities sold (book)": 20475657
+      },
+      "liabilities_down": {
+       "存款及匯款": 271032267
+      },
+      "equity_down": 0
+     },
+     "after": {
+      "assets": 3105978971,
+      "loans": 2067768378,
+      "securities": 965343609,
+      "deposits": 2439290407,
+      "liabilities": 2885651916,
+      "equity": 220327055
+     },
+     "ratios_after": {
+      "r1": 66.57,
+      "r2": 31.08,
+      "r3": 84.77,
+      "r4": 84.53,
+      "r5": 7.09
+     }
+    },
+    "A2_deposit_run_10pct_fire_sale_10pct": {
+     "scenario": "deposits -10%, securities sold at 10% discount",
+     "deposit_outflow": 271032267,
+     "liquid_assets_before": 250556610,
+     "liquid_used": 250556610,
+     "shortfall_after_liquid": 20475657,
+     "surplus_after_liquid": 0,
+     "securities_sold_book": 22750730,
+     "loss_to_equity": 2275073,
+     "t_account": {
+      "assets_down": {
+       "現金及約當現金": null,
+       "存放央行及拆借銀行同業": null,
+       "liquid total used": 250556610,
+       "securities sold (book)": 22750730
+      },
+      "liabilities_down": {
+       "存款及匯款": 271032267
+      },
+      "equity_down": 2275073
+     },
+     "after": {
+      "assets": 3103703898,
+      "loans": 2067768378,
+      "securities": 963068536,
+      "deposits": 2439290407,
+      "liabilities": 2885651916,
+      "equity": 218051982
+     },
+     "ratios_after": {
+      "r1": 66.62,
+      "r2": 31.03,
+      "r3": 84.77,
+      "r4": 84.53,
+      "r5": 7.03
+     }
+    },
+    "B_rate_shock_5pct": {
+     "scenario": "bond prices -5%",
+     "recognized_losses": {
+      "透過損益按公允價值衡量之金融資產": 6215630,
+      "透過其他綜合損益按公允價值衡量之金融資產": 15954103
+     },
+     "recognized_total": 22169733,
+     "hidden_losses_not_on_balance_sheet": {
+      "按攤銷後成本衡量之債務工具投資": 27121230
+     },
+     "hidden_total": 27121230,
+     "equity_after_recognized": 198157322,
+     "r5_after_recognized": 5.91,
+     "equity_if_hidden_also_marked": 171036092,
+     "r5_if_hidden_also_marked": 5.14,
+     "ratios_after_recognized": {
+      "r1": 61.64,
+      "r2": 28.72,
+      "r3": 76.29,
+      "r4": 85.86,
+      "r5": 5.91
+     },
+     "ratios_if_hidden_also_marked": {
+      "r1": 62.14,
+      "r2": 28.14,
+      "r3": 76.29,
+      "r4": 85.86,
+      "r5": 5.14
+     }
+    }
+   }
+  },
+  "JPM": {
+   "name_zh": "摩根大通（JPMorgan Chase & Co.）",
+   "name_en": "JPMorgan Chase & Co.",
+   "date": "December 31, 2025",
+   "unit": "US$ million",
+   "statement": "Consolidated balance sheets",
+   "source": {
+    "file": "data/JPM-2025-annual-report.pdf",
+    "title": "JPMorgan Chase & Co. 2025 Annual Report (364 pages; contains the 2025 Form 10-K)",
+    "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+    "sha256": "2a3ee9733eafd01e7667c5540fbd797c4cc688d14f00638a877f5623d1316d9d",
+    "pdf_page": 199,
+    "printed_page": "167 (Form 10-K numbering)",
+    "cross_check": "SEC EDGAR XBRL companyfacts, CIK 19617, FY2025 10-K filed 2026-02-13 (accession 0001628280-26-008131): identical",
+    "edgar_url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm"
+   },
+   "extra_pages": {
+    "selected_balance_sheet_analysis": {
+     "pdf_page": 87,
+     "printed_page": "55",
+     "what": "Consolidated balance sheets analysis (same line items with % change)"
+    },
+    "business_segments": {
+     "pdf_page": 94,
+     "printed_page": "62",
+     "what": "Business Segment & Corporate Results (how the firm makes money: CCB, CIB, AWM, Corporate)"
+    },
+    "segment_overview_front": {
+     "pdf_page": "54-70",
+     "printed_page": "52-67 (annual-report front section numbering)",
+     "what": "Segment overviews in the front part of the annual report"
+    },
+    "liquidity_deposits": {
+     "pdf_page": 135,
+     "printed_page": "103",
+     "what": "Firmwide estimated uninsured deposits $1,558.6 billion at Dec 31, 2025"
+    },
+    "deposit_ratios": {
+     "pdf_page": 136,
+     "printed_page": "104",
+     "what": "Deposits as a % of total liabilities 63%; loans-to-deposits ratio 58% (the Firm's own table, uses gross loans $1,493.4bn)"
+    },
+    "ratios_summary": {
+     "pdf_page": 76,
+     "printed_page": "44",
+     "what": "Loans-to-deposits ratio 58 (2025), 56 (2024), 55 (2023)"
+    },
+    "htm_unrealized": {
+     "pdf_page": 261,
+     "printed_page": "229",
+     "what": "Note 10: total HTM securities amortized cost 270,134 / gross unrealized losses 17,053 / fair value 253,344; total investment securities gross unrealized losses 20,395"
+    }
+   },
+   "securities_components": [
+    "afs",
+    "htm"
+   ],
+   "securities_note": "Securities investment = Investment securities, net of allowance (AFS + HTM). Trading assets (802,873) are NOT included: they are market-making inventory, mostly at fair value — ask students whether they should count",
+   "liquid_components": [
+    "cash",
+    "due_from_banks"
+   ],
+   "firm_reported": {
+    "loans_to_deposits_pct": 58,
+    "deposits_pct_of_liabilities": 63,
+    "uninsured_deposits_bn": 1558.6,
+    "htm_gross_unrealized_losses": 17053,
+    "afs_gross_unrealized_losses": 3342
+   },
+   "prior_year": {
+    "assets": 4002814,
+    "liabilities": 3658056,
+    "equity": 344758,
+    "deposits": 2406032,
+    "loans": 1323643
+   },
+   "lines": {
+    "cash": {
+     "label": "Cash and due from banks",
+     "value": 21742
+    },
+    "due_from_banks": {
+     "label": "Deposits with banks",
+     "value": 321596
+    },
+    "fed_funds_sold": {
+     "label": "Federal funds sold and securities purchased under resale agreements",
+     "value": 336426
+    },
+    "securities_borrowed": {
+     "label": "Securities borrowed",
+     "value": 286191
+    },
+    "trading_assets": {
+     "label": "Trading assets",
+     "value": 802873
+    },
+    "afs": {
+     "label": "Available-for-sale securities",
+     "value": 507198
+    },
+    "htm": {
+     "label": "Held-to-maturity securities",
+     "value": 270134
+    },
+    "investment_securities": {
+     "label": "Investment securities, net of allowance for credit losses",
+     "value": 777332
+    },
+    "loans_gross": {
+     "label": "Loans",
+     "value": 1493429
+    },
+    "allowance": {
+     "label": "Allowance for loan losses",
+     "value": -25765
+    },
+    "loans": {
+     "label": "Loans, net of allowance for loan losses",
+     "value": 1467664
+    },
+    "assets": {
+     "label": "Total assets",
+     "value": 4424900
+    },
+    "deposits": {
+     "label": "Deposits",
+     "value": 2559320
+    },
+    "fed_funds_purchased": {
+     "label": "Federal funds purchased and securities loaned or sold under repurchase agreements",
+     "value": 442396
+    },
+    "short_term_borrowings": {
+     "label": "Short-term borrowings",
+     "value": 64776
+    },
+    "trading_liabilities": {
+     "label": "Trading liabilities",
+     "value": 216019
+    },
+    "long_term_debt": {
+     "label": "Long-term debt",
+     "value": 435206
+    },
+    "liabilities": {
+     "label": "Total liabilities",
+     "value": 4062462
+    },
+    "equity": {
+     "label": "Total stockholders’ equity",
+     "value": 362438
+    }
+   },
+   "base": {
+    "assets": 4424900,
+    "loans": 1467664,
+    "securities": 777332,
+    "deposits": 2559320,
+    "liabilities": 4062462,
+    "equity": 362438
+   },
+   "ratios_pct": {
+    "r1": 33.17,
+    "r2": 17.57,
+    "r3": 57.35,
+    "r4": 63.0,
+    "r5": 8.19
+   },
+   "variants": {
+    "r3_gross_loans": 58.35,
+    "r1_gross_loans": 33.75,
+    "r2_including_trading_assets": 35.71,
+    "htm_unrealized_loss_pct_of_equity": 4.7,
+    "uninsured_deposits_pct_of_deposits": 60.9
+   },
+   "stress": {
+    "A_deposit_run_10pct": {
+     "scenario": "deposits -10%",
+     "deposit_outflow": 255932,
+     "liquid_assets_before": 343338,
+     "liquid_used": 255932,
+     "shortfall_after_liquid": 0,
+     "surplus_after_liquid": 87406,
+     "securities_sold_book": 0,
+     "loss_to_equity": 0,
+     "t_account": {
+      "assets_down": {
+       "Cash and due from banks": null,
+       "Deposits with banks": null,
+       "liquid total used": 255932,
+       "securities sold (book)": 0
+      },
+      "liabilities_down": {
+       "Deposits": 255932
+      },
+      "equity_down": 0
+     },
+     "after": {
+      "assets": 4168968,
+      "loans": 1467664,
+      "securities": 777332,
+      "deposits": 2303388,
+      "liabilities": 3806530,
+      "equity": 362438
+     },
+     "ratios_after": {
+      "r1": 35.2,
+      "r2": 18.65,
+      "r3": 63.72,
+      "r4": 60.51,
+      "r5": 8.69
+     }
+    },
+    "A2_deposit_run_10pct_fire_sale_10pct": {
+     "scenario": "deposits -10%, securities sold at 10% discount",
+     "deposit_outflow": 255932,
+     "liquid_assets_before": 343338,
+     "liquid_used": 255932,
+     "shortfall_after_liquid": 0,
+     "surplus_after_liquid": 87406,
+     "securities_sold_book": 0,
+     "loss_to_equity": 0,
+     "t_account": {
+      "assets_down": {
+       "Cash and due from banks": null,
+       "Deposits with banks": null,
+       "liquid total used": 255932,
+       "securities sold (book)": 0
+      },
+      "liabilities_down": {
+       "Deposits": 255932
+      },
+      "equity_down": 0
+     },
+     "after": {
+      "assets": 4168968,
+      "loans": 1467664,
+      "securities": 777332,
+      "deposits": 2303388,
+      "liabilities": 3806530,
+      "equity": 362438
+     },
+     "ratios_after": {
+      "r1": 35.2,
+      "r2": 18.65,
+      "r3": 63.72,
+      "r4": 60.51,
+      "r5": 8.69
+     }
+    },
+    "B_rate_shock_5pct": {
+     "scenario": "bond prices -5%",
+     "recognized_losses": {
+      "Available-for-sale securities": 25360
+     },
+     "recognized_total": 25360,
+     "hidden_losses_not_on_balance_sheet": {
+      "Held-to-maturity securities": 13507
+     },
+     "hidden_total": 13507,
+     "equity_after_recognized": 337078,
+     "r5_after_recognized": 7.66,
+     "equity_if_hidden_also_marked": 323571,
+     "r5_if_hidden_also_marked": 7.38,
+     "ratios_after_recognized": {
+      "r1": 33.36,
+      "r2": 17.09,
+      "r3": 57.35,
+      "r4": 63.0,
+      "r5": 7.66
+     },
+     "ratios_if_hidden_also_marked": {
+      "r1": 33.46,
+      "r2": 16.84,
+      "r3": 57.35,
+      "r4": 63.0,
+      "r5": 7.38
+     }
+    }
+   }
+  },
+  "SVB": {
+   "name_zh": "矽谷銀行（SVB Financial Group）",
+   "name_en": "SVB Financial Group (Silicon Valley Bank)",
+   "date": "December 31, 2022（倒閉前最後一份年報；銀行於 2023-03-10 被接管）",
+   "unit": "US$ million",
+   "statement": "Consolidated Balance Sheets",
+   "source": {
+    "file": "demo/svb/SVB-2022-balance-sheet-excerpt.pdf（我們重排的一頁摘錄，數字照原文）",
+    "title": "SVB Financial Group Form 10-K for fiscal year 2022, filed 2023-02-24 (accession 0000719739-23-000021)",
+    "url": "https://www.sec.gov/Archives/edgar/data/719739/000071973923000021/sivb-20221231.htm",
+    "sha256": null,
+    "pdf_page": null,
+    "printed_page": "95",
+    "cross_check": "SEC EDGAR XBRL companyfacts, CIK 719739, FY2022 10-K: identical (Assets, AFS, HTM, NotesReceivableNet 73,614, Deposits, Liabilities, StockholdersEquity 16,004)"
+   },
+   "extra_pages": {
+    "uninsured": {
+     "printed_page": "80",
+     "what": "“the amount of estimated uninsured deposits in U.S. offices that exceed the FDIC insurance limit were $151.5 billion” (Dec 31, 2022)"
+    },
+    "htm_note": {
+     "printed_page": "125",
+     "what": "Total HTM securities: amortized cost 91,327 / gross unrealized losses (15,160) / fair value 76,169 / allowance 6 / net carrying 91,321"
+    }
+   },
+   "securities_components": [
+    "afs",
+    "htm"
+   ],
+   "securities_note": "Securities investment = AFS + HTM (debt securities). The statement's own “Total investment securities” 120,054 also includes 2,664 of non-marketable equity securities",
+   "liquid_components": [
+    "cash"
+   ],
+   "htm_fair_value": 76169,
+   "htm_gross_unrealized_losses": 15160,
+   "uninsured_deposits_bn": 151.5,
+   "excerpt_rows": [
+    [
+     "Assets",
+     null,
+     null
+    ],
+    [
+     "Cash and cash equivalents",
+     13803,
+     14586
+    ],
+    [
+     "Available-for-sale securities, at fair value (cost of $28,602 and $27,370, respectively, including $530 and $61 pledged as collateral, respectively)",
+     26069,
+     27221
+    ],
+    [
+     "Held-to-maturity securities, at amortized cost and net of allowance for credit losses of $6 and $7 (fair value of $76,169 and $97,227, respectively)",
+     91321,
+     98195
+    ],
+    [
+     "Non-marketable and other equity securities",
+     2664,
+     2543
+    ],
+    [
+     "Total investment securities",
+     120054,
+     127959
+    ],
+    [
+     "Loans, amortized cost",
+     74250,
+     66276
+    ],
+    [
+     "Allowance for credit losses: loans",
+     -636,
+     -422
+    ],
+    [
+     "Net loans",
+     73614,
+     65854
+    ],
+    [
+     "Premises and equipment, net of accumulated depreciation and amortization",
+     394,
+     270
+    ],
+    [
+     "Goodwill",
+     375,
+     375
+    ],
+    [
+     "Other intangible assets, net",
+     136,
+     160
+    ],
+    [
+     "Lease right-of-use assets",
+     335,
+     313
+    ],
+    [
+     "Accrued interest receivable and other assets",
+     3082,
+     1791
+    ],
+    [
+     "Total assets",
+     211793,
+     211308
+    ],
+    [
+     "Liabilities and total equity",
+     null,
+     null
+    ],
+    [
+     "Noninterest-bearing demand deposits",
+     80753,
+     125851
+    ],
+    [
+     "Interest-bearing deposits",
+     92356,
+     63352
+    ],
+    [
+     "Total deposits",
+     173109,
+     189203
+    ],
+    [
+     "Short-term borrowings",
+     13565,
+     71
+    ],
+    [
+     "Lease liabilities",
+     413,
+     388
+    ],
+    [
+     "Other liabilities",
+     3041,
+     2467
+    ],
+    [
+     "Long-term debt",
+     5370,
+     2570
+    ],
+    [
+     "Total liabilities",
+     195498,
+     194699
+    ],
+    [
+     "Preferred stock",
+     3646,
+     3646
+    ],
+    [
+     "Common stock",
+     0,
+     0
+    ],
+    [
+     "Additional paid-in capital",
+     5318,
+     5157
+    ],
+    [
+     "Retained earnings",
+     8951,
+     7442
+    ],
+    [
+     "Accumulated other comprehensive income (loss)",
+     -1911,
+     -9
+    ],
+    [
+     "Total SVBFG stockholders’ equity",
+     16004,
+     16236
+    ],
+    [
+     "Noncontrolling interests",
+     291,
+     373
+    ],
+    [
+     "Total equity",
+     16295,
+     16609
+    ],
+    [
+     "Total liabilities and total equity",
+     211793,
+     211308
+    ]
+   ],
+   "excerpt_footer": "Transcribed for classroom use from SVB Financial Group, Form 10-K for the fiscal year ended December 31, 2022 (filed 2023-02-24; SEC EDGAR accession 0000719739-23-000021), Consolidated Balance Sheets, page 95. Dollars in millions. Column “2021” = December 31, 2021.",
+   "lines": {
+    "cash": {
+     "label": "Cash and cash equivalents",
+     "value": 13803
+    },
+    "afs": {
+     "label": "Available-for-sale securities, at fair value (cost of $28,602)",
+     "value": 26069
+    },
+    "htm": {
+     "label": "Held-to-maturity securities, at amortized cost (fair value of $76,169)",
+     "value": 91321
+    },
+    "non_marketable": {
+     "label": "Non-marketable and other equity securities",
+     "value": 2664
+    },
+    "investment_securities_total": {
+     "label": "Total investment securities",
+     "value": 120054
+    },
+    "loans_gross": {
+     "label": "Loans, amortized cost",
+     "value": 74250
+    },
+    "allowance": {
+     "label": "Allowance for credit losses: loans",
+     "value": -636
+    },
+    "loans": {
+     "label": "Net loans",
+     "value": 73614
+    },
+    "assets": {
+     "label": "Total assets",
+     "value": 211793
+    },
+    "deposits_noninterest": {
+     "label": "Noninterest-bearing demand deposits",
+     "value": 80753
+    },
+    "deposits_interest": {
+     "label": "Interest-bearing deposits",
+     "value": 92356
+    },
+    "deposits": {
+     "label": "Total deposits",
+     "value": 173109
+    },
+    "short_term_borrowings": {
+     "label": "Short-term borrowings",
+     "value": 13565
+    },
+    "long_term_debt": {
+     "label": "Long-term debt",
+     "value": 5370
+    },
+    "liabilities": {
+     "label": "Total liabilities",
+     "value": 195498
+    },
+    "equity": {
+     "label": "Total SVBFG stockholders’ equity",
+     "value": 16004
+    },
+    "equity_total": {
+     "label": "Total equity (incl. noncontrolling interests)",
+     "value": 16295
+    }
+   },
+   "base": {
+    "assets": 211793,
+    "loans": 73614,
+    "securities": 117390,
+    "deposits": 173109,
+    "liabilities": 195498,
+    "equity": 16004
+   },
+   "ratios_pct": {
+    "r1": 34.76,
+    "r2": 55.43,
+    "r3": 42.52,
+    "r4": 88.55,
+    "r5": 7.56
+   },
+   "variants": {
+    "r3_gross_loans": 42.89,
+    "r2_total_investment_securities": 56.68,
+    "r5_total_equity": 7.69,
+    "htm_fair_value_gap": 15152,
+    "htm_gap_pct_of_equity": 94.7,
+    "equity_if_htm_gap_recognized": 852,
+    "r5_if_htm_gap_recognized": 0.43,
+    "note_htm_gross_unrealized_losses_p125": 15160,
+    "htm_unrealized_loss_pct_of_equity": 94.7,
+    "uninsured_deposits_pct_of_deposits": 87.5,
+    "noninterest_bearing_pct_of_deposits": 46.6
+   },
+   "stress": {
+    "A_deposit_run_10pct": {
+     "scenario": "deposits -10%",
+     "deposit_outflow": 17311,
+     "liquid_assets_before": 13803,
+     "liquid_used": 13803,
+     "shortfall_after_liquid": 3508,
+     "surplus_after_liquid": 0,
+     "securities_sold_book": 3508,
+     "loss_to_equity": 0,
+     "t_account": {
+      "assets_down": {
+       "Cash and cash equivalents": null,
+       "liquid total used": 13803,
+       "securities sold (book)": 3508
+      },
+      "liabilities_down": {
+       "Total deposits": 17311
+      },
+      "equity_down": 0
+     },
+     "after": {
+      "assets": 194482,
+      "loans": 73614,
+      "securities": 113882,
+      "deposits": 155798,
+      "liabilities": 178187,
+      "equity": 16004
+     },
+     "ratios_after": {
+      "r1": 37.85,
+      "r2": 58.56,
+      "r3": 47.25,
+      "r4": 87.44,
+      "r5": 8.23
+     }
+    },
+    "A2_deposit_run_10pct_fire_sale_10pct": {
+     "scenario": "deposits -10%, securities sold at 10% discount",
+     "deposit_outflow": 17311,
+     "liquid_assets_before": 13803,
+     "liquid_used": 13803,
+     "shortfall_after_liquid": 3508,
+     "surplus_after_liquid": 0,
+     "securities_sold_book": 3898,
+     "loss_to_equity": 390,
+     "t_account": {
+      "assets_down": {
+       "Cash and cash equivalents": null,
+       "liquid total used": 13803,
+       "securities sold (book)": 3898
+      },
+      "liabilities_down": {
+       "Total deposits": 17311
+      },
+      "equity_down": 390
+     },
+     "after": {
+      "assets": 194092,
+      "loans": 73614,
+      "securities": 113492,
+      "deposits": 155798,
+      "liabilities": 178187,
+      "equity": 15614
+     },
+     "ratios_after": {
+      "r1": 37.93,
+      "r2": 58.47,
+      "r3": 47.25,
+      "r4": 87.44,
+      "r5": 8.04
+     }
+    },
+    "B_rate_shock_5pct": {
+     "scenario": "bond prices -5%",
+     "recognized_losses": {
+      "Available-for-sale securities, at fair value (cost of $28,602)": 1303
+     },
+     "recognized_total": 1303,
+     "hidden_losses_not_on_balance_sheet": {
+      "Held-to-maturity securities, at amortized cost (fair value of $76,169)": 4566
+     },
+     "hidden_total": 4566,
+     "equity_after_recognized": 14701,
+     "r5_after_recognized": 6.98,
+     "equity_if_hidden_also_marked": 10135,
+     "r5_if_hidden_also_marked": 4.92,
+     "ratios_after_recognized": {
+      "r1": 34.97,
+      "r2": 55.15,
+      "r3": 42.52,
+      "r4": 88.55,
+      "r5": 6.98
+     },
+     "ratios_if_hidden_also_marked": {
+      "r1": 35.75,
+      "r2": 54.16,
+      "r3": 42.52,
+      "r4": 88.55,
+      "r5": 4.92
+     }
+    }
+   }
+  }
+ }
+}

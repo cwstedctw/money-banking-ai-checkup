@@ -1,0 +1,98 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>銀行體檢：把財報交給 AI，要它每一句指回頁碼</title><style>
+:root{--teal:#0E7C7B;--gold:#D9A441;--cream:#F4ECD8;--ink:#1A1A1A;--paper:#FFFDF8;--line:#E4D9C3}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC","Segoe UI",system-ui,sans-serif;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:24px 16px 56px}
+header.top{background:var(--teal);color:#fff;padding:28px 16px}
+header.top .in{max-width:760px;margin:0 auto}
+header.top h1{margin:0 0 6px;font-size:1.45rem;line-height:1.3;letter-spacing:.01em}
+header.top p{margin:0;opacity:.92;font-size:.95rem}
+h2{font-size:1.15rem;margin:28px 0 10px;color:var(--teal)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin:12px 0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.card h3{margin:0 0 4px;font-size:1.08rem}
+.card .meta{color:#555;font-size:.92rem;margin:0 0 10px}
+.links{display:grid;grid-template-columns:1fr;gap:8px;margin:0;padding:0;list-style:none}
+@media(min-width:560px){.links{grid-template-columns:1fr 1fr}}
+.links a{display:block;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
+.links a:hover{border-color:var(--teal)}
+.links a small{display:block;font-weight:400;color:#666;font-size:.84rem}
+.links a.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+.links a.primary small{color:#e6f2f2}
+.note{font-size:.92rem;color:#444;margin:8px 0 0}
+ol.steps{padding-left:1.2em}ol.steps li{margin:6px 0}
+pre.prompt{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 14px;font:inherit;font-size:.98rem;margin:8px 0 0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;background:var(--teal);color:#fff;border-radius:999px;padding:2px 10px;font-size:.84rem;font-weight:700}
+button.copy{background:var(--gold);color:#1A1A1A;border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit}
+button.copy:active{transform:translateY(1px)}
+button.copy.done{background:var(--teal);color:#fff}
+.use{color:#555;font-size:.9rem;margin:4px 0 0}
+footer{max-width:760px;margin:0 auto;padding:0 16px 40px;color:#555;font-size:.86rem}
+footer a{color:var(--teal)}
+.lang{float:right;font-size:.9rem}.lang a{color:#fff;text-decoration:underline}
+img.qr{width:160px;height:160px;display:block;margin:8px 0}
+</style></head><body><header class="top"><div class="in"><h1>銀行體檢：把財報交給 AI，要它每一句指回頁碼</h1><p>Bank check-up with AI — Money and Banking, National Dong Hwa University · 陳文盛 Wen-Sheng (Ted) Chen</p></div></header><main>
+<h2>中文場　11/16（一）11:35–12:25</h2>
+<div class="card"><h3>病人：彰化銀行（2801）・2025-12-31 合併資產負債表</h3>
+<p class="meta">單位新臺幣千元。財報 10 頁，合併資產負債表在 PDF 第 1 頁（紙本頁碼 8）。</p>
+<ul class="links">
+<li><a class="primary" href="zh/deck.html">投影片（網頁版）<small>22 頁；提示語框有「複製」鈕，左右鍵翻頁</small></a></li>
+<li><a class="primary" href="zh/prompts.html">提示語①–⑤（手機版）<small>一鍵複製，貼進 AI 筆記本／ChatGPT／Claude</small></a></li>
+<li><a href="zh/worksheet.html">學生練習單（網頁版）<small>每一步：做什麼、貼什麼、應該看到、多久</small></a></li>
+<li><a href="zh/files/學生練習單-銀行體檢.docx">學生練習單（Word）<small>同內容，可下載填寫</small></a></li>
+<li><a href="zh/files/體檢表範本.xlsx">體檢表範本（Excel）<small>填數字，五個比率自動算</small></a></li>
+<li><a href="zh/files/回家作業卡.docx">回家作業卡（Word）<small>第二次 AI 專題的第一張表</small></a></li>
+<li><a href="zh/files/壓力測試題.docx">壓力測試題（Word）<small>情境 A、B 與空白 T 字帳</small></a></li>
+<li><a href="zh/files/deck-zh.pdf">投影片 PDF<small>備援；沒有複製鈕</small></a></li>
+</ul>
+<h3 style="margin-top:14px;font-size:1rem">財報（官方檔案）</h3>
+<ul class="links">
+<li><a href="https://www.bankchb.com/chb_2a_resource/leap_do/gallery/1775714798658/114%E5%B9%B4%E5%BA%A6%E8%B2%A1%E5%A0%B1.pdf">彰化銀行 114 年度財務報告<small>官網 PDF，10 頁；上課用這份</small></a></li>
+<li><a href="https://www.bankchb.com/chb_2a_resource/leap_do/annual_report_picture/1779097600166/%E5%BD%B0%E5%8C%96%E9%8A%80%E8%A1%8C2025%E5%B9%B4%E5%B9%B4%E5%A0%B1.pdf">彰化銀行 2025 年年報<small>官網 PDF，123 頁；回家做經營方式用</small></a></li>
+<li><a href="files/SVB-2022-balance-sheet-excerpt.pdf">矽谷銀行資產負債表摘錄（一頁）<small>照 2022 年 10-K 第 95 頁重排；開場案例</small></a></li>
+</ul></div>
+
+<h2>English session　Wed 11/18, 11:00–11:50</h2>
+<div class="card"><h3>Patient: JPMorgan Chase &amp; Co. · Consolidated balance sheets, Dec 31, 2025</h3>
+<p class="meta">US$ million. 2025 Annual Report, 364 pages; the balance sheet is on PDF page 199 (= page 167 in the 10-K's own numbering).</p>
+<ul class="links">
+<li><a class="primary" href="en/deck.html">Slides (web)<small>22 pages; prompt boxes have a Copy button; arrow keys to navigate</small></a></li>
+<li><a class="primary" href="en/prompts.html">Prompts ①–⑤ (phone)<small>One-tap copy for Gemini Notebook / ChatGPT / Claude</small></a></li>
+<li><a href="en/worksheet.html">Student worksheet (web)<small>Each step: what to do, what to paste, what you should see, how long</small></a></li>
+<li><a href="en/files/Student-Worksheet-Bank-Checkup.docx">Student worksheet (Word)<small>Same content, downloadable</small></a></li>
+<li><a href="en/files/checkup-template.xlsx">Check-up template (Excel)<small>Type the numbers; the five ratios compute themselves</small></a></li>
+<li><a href="en/files/Homework-Card.docx">Homework card (Word)<small>The first table of AI Project 2</small></a></li>
+<li><a href="en/files/Stress-Test-Scenarios.docx">Stress-test scenarios (Word)<small>Scenarios A and B with blank T-accounts</small></a></li>
+<li><a href="en/files/deck-en.pdf">Slides (PDF)<small>Backup; no Copy buttons</small></a></li>
+</ul>
+<h3 style="margin-top:14px;font-size:1rem">Reports (official files)</h3>
+<ul class="links">
+<li><a href="https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf">JPMorgan Chase 2025 Annual Report<small>Official PDF, 364 pages (contains the Form 10-K)</small></a></li>
+<li><a href="files/SVB-2022-balance-sheet-excerpt.pdf">SVB balance-sheet excerpt (one page)<small>Re-typeset from the FY2022 Form 10-K, page 95; opening case</small></a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/719739/000071973923000021/sivb-20221231.htm">SVB Financial Group Form 10-K, FY2022<small>SEC EDGAR, web version</small></a></li>
+</ul></div>
+
+<h2>怎麼用 / How to use</h2>
+<div class="card"><ol class="steps">
+<li>登入一個能上傳 PDF 的 AI：AI 筆記本（Gemini Notebook，原名 NotebookLM；用 Google 帳號）、ChatGPT 或 Claude。<br><span class="use">Log in to an AI that takes PDF uploads: Gemini Notebook (formerly NotebookLM), ChatGPT or Claude.</span></li>
+<li>下載上面的財報，上傳給它。<br><span class="use">Download the report above and upload it.</span></li>
+<li>貼提示語 ③，拿到一張每格有頁碼的表；<b>五個比率自己算</b>（體檢表範本會算）。<br><span class="use">Paste Prompt ③, get a table with a page for every cell; <b>compute the five ratios yourself</b>.</span></li>
+<li>抽三格回原文查：單位、年度欄、合併或個體。<br><span class="use">Spot-check three cells against the original: units, year column, consolidated or not.</span></li>
+<li>交作業附揭露句：「本作業使用＿＿（AI 工具）協助＿＿（做了什麼）；數字已由本組對照原文核對。」</li>
+</ol></div>
+<h2>給老師 / For instructors</h2>
+<div class="card"><p class="note">把這一個網址放進 e學苑 就好，學生用手機也能開。老師用的檔案（壓力測試參考答案、體檢表老師版）不在這個網站上，請向陳文盛老師索取。<br>
+Put this one link on your LMS. Teacher-only files (answer keys) are not on this site; ask the author.</p>
+<p class="note">想在自己的課上換一家銀行？這個網站的原始碼 repo 內建 AI 助理規則：用 Claude 桌面版、Codex 或 Antigravity 打開 repo 資料夾，直接說「幫我加一家銀行」，它會照 <code>bank_numbers.py</code> 的格式要你提供數字與頁碼，再重算五個比率、重產投影片與練習單。說明在 <a href="https://github.com/cwstedctw/money-banking-ai-checkup#readme">README</a>。</p>
+<img class="qr" src="qr.png" alt="QR code of this site"><p class="note">投影用 QR：掃了就是這一頁。</p></div>
+</main><footer><p>© 2026 陳文盛（國立東華大學通識教育中心）× AI 協作團隊・<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant">CC BY-NC-SA 4.0</a>・<a href="https://github.com/cwstedctw/money-banking-ai-checkup">原始碼與 AI 助理規則（GitHub）</a></p><p>財報的著作權屬各發行機構，本站只連結官方檔案；矽谷銀行摘錄頁照 SEC 公開申報文件逐格重排。Financial reports belong to their issuers; this site links to the official files.</p></footer><script>
+(function(){
+  function fb(t){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='-1000px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return ok}
+  document.querySelectorAll('button.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-for')).textContent;var done=function(){var o=b.textContent;b.textContent=b.getAttribute('data-done');b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done')},1600)};
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,function(){if(fb(t))done()})}else if(fb(t)){done()}
+    });
+  });
+})();
+</script></body></html>

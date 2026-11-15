@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>提示語①–⑤（中文場・彰化銀行）</title><style>
+:root{--teal:#0E7C7B;--gold:#D9A441;--cream:#F4ECD8;--ink:#1A1A1A;--paper:#FFFDF8;--line:#E4D9C3}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC","Segoe UI",system-ui,sans-serif;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:24px 16px 56px}
+header.top{background:var(--teal);color:#fff;padding:28px 16px}
+header.top .in{max-width:760px;margin:0 auto}
+header.top h1{margin:0 0 6px;font-size:1.45rem;line-height:1.3;letter-spacing:.01em}
+header.top p{margin:0;opacity:.92;font-size:.95rem}
+h2{font-size:1.15rem;margin:28px 0 10px;color:var(--teal)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin:12px 0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.card h3{margin:0 0 4px;font-size:1.08rem}
+.card .meta{color:#555;font-size:.92rem;margin:0 0 10px}
+.links{display:grid;grid-template-columns:1fr;gap:8px;margin:0;padding:0;list-style:none}
+@media(min-width:560px){.links{grid-template-columns:1fr 1fr}}
+.links a{display:block;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
+.links a:hover{border-color:var(--teal)}
+.links a small{display:block;font-weight:400;color:#666;font-size:.84rem}
+.links a.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+.links a.primary small{color:#e6f2f2}
+.note{font-size:.92rem;color:#444;margin:8px 0 0}
+ol.steps{padding-left:1.2em}ol.steps li{margin:6px 0}
+pre.prompt{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 14px;font:inherit;font-size:.98rem;margin:8px 0 0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;background:var(--teal);color:#fff;border-radius:999px;padding:2px 10px;font-size:.84rem;font-weight:700}
+button.copy{background:var(--gold);color:#1A1A1A;border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit}
+button.copy:active{transform:translateY(1px)}
+button.copy.done{background:var(--teal);color:#fff}
+.use{color:#555;font-size:.9rem;margin:4px 0 0}
+footer{max-width:760px;margin:0 auto;padding:0 16px 40px;color:#555;font-size:.86rem}
+footer a{color:var(--teal)}
+.lang{float:right;font-size:.9rem}.lang a{color:#fff;text-decoration:underline}
+img.qr{width:160px;height:160px;display:block;margin:8px 0}
+</style></head><body><header class="top"><div class="in"><h1>提示語①–⑤（中文場・彰化銀行）</h1><p>貨幣銀行學 AI 第二輪・2026-11-16</p></div></header><main><p class="note"><a href="../index.html">← 回首頁</a>・<a href="deck.html">投影片</a>・<a href="worksheet.html">練習單</a></p><p class="note">三種 AI 都能用：AI 筆記本（Gemini Notebook，原名 NotebookLM）、ChatGPT、Claude。先上傳財報，再整段貼上。找不到的數字它會說「找不到」，那是對的——自己翻 PDF。</p><div class="card"><div class="pbar"><span class="tag">提示語 ①</span><button class="copy" data-for="p1" data-done="已複製 ✓">複製</button></div><p class="use">課文整理：上傳老師給的一章講義後貼</p><pre class="prompt" id="p1">請只根據我上傳的這一章講義回答，不要用其他資料。
+1. 畫出這一章的章節地圖：每一節用一句話說它在講什麼。
+2. 出五題自我測驗（選擇或簡答都可以），每一題後面寫出答案在講義的第幾頁。
+每一句話後面都要標頁碼。講義裡沒有的，請直接說「講義裡沒有」。</pre></div><div class="card"><div class="pbar"><span class="tag">提示語 ②</span><button class="copy" data-for="p2" data-done="已複製 ✓">複製</button></div><p class="use">矽谷銀行三題（老師示範用；自己想試就上傳摘錄頁再貼）</p><pre class="prompt" id="p2">請只根據我上傳的這份資產負債表回答，不要用其他資料。
+1. 2022 年 12 月 31 日這家銀行的總資產、放款淨額、持有至到期證券、存款、股東權益各是多少？每個數字標出它在哪一列。
+2. 持有至到期證券那一列括號裡寫的公允價值是多少？跟帳面金額差多少？這個差額是股東權益的幾成？
+3. 這家銀行有多少存款超過存款保險上限（未受保障存款）？
+表上沒有的數字，請直接回答「這份文件裡沒有」，不要推測。</pre></div><div class="card"><div class="pbar"><span class="tag">提示語 ③</span><button class="copy" data-for="p3" data-done="已複製 ✓">複製</button></div><p class="use">銀行體檢：上傳財報後貼，拿到有頁碼的表</p><pre class="prompt" id="p3">請只根據我上傳的彰化銀行財報回答，不要用其他資料。
+請做一張表，列出 114 年 12 月 31 日合併資產負債表的這幾個數字（單位照原文，寫清楚是千元）：
+資產總計、貼現及放款－淨額、透過損益按公允價值衡量之金融資產、透過其他綜合損益按公允價值衡量之金融資產、按攤銷後成本衡量之債務工具投資、存款及匯款、負債總計、權益總計。
+每一格後面寫出：它在 PDF 第幾頁、科目名稱的原文。
+然後把下面五個比率的算式列出來（分子、分母各是哪一格），比率我自己算：
+1. 放款 ÷ 總資產
+2. 證券投資（上面三行金融資產相加）÷ 總資產
+3. 放款 ÷ 存款
+4. 存款 ÷ 總負債
+5. 權益 ÷ 總資產
+最後用一句話說明：你用的是合併報表還是個體報表、哪一欄的年度。
+找不到的數字寫「找不到」，不要用其他來源補。</pre></div><div class="card"><div class="pbar"><span class="tag">提示語 ④</span><button class="copy" data-for="p4" data-done="已複製 ✓">複製</button></div><p class="use">壓力測試：接在提示語 ③ 的同一個對話裡貼</p><pre class="prompt" id="p4">接著上面那張表。假設明天有一成的存款被提走，銀行先用「現金及約當現金」和「存放央行及拆借銀行同業」來付（這兩列的數字請從同一份財報找出來，並標 PDF 第幾頁）。
+1. 資產負債表哪幾行會動？各動多少？用 T 字帳列出來。
+2. 手上的錢夠不夠？不夠的部分要從哪裡來？
+3. 五個比率各變成多少？
+每一句話請標明：這是從報表上來的數字、你算出來的，還是你的推論。</pre></div><div class="card"><div class="pbar"><span class="tag">提示語 ⑤</span><button class="copy" data-for="p5" data-done="已複製 ✓">複製</button></div><p class="use">回家：深度研究兩家銀行的經營方式</p><pre class="prompt" id="p5">請用深度研究功能，寫一份兩家銀行經營方式比較的初稿（我會貼上我們算好的五個比率）。
+每一個事實後面都要附來源連結。寫完請另列一張表：你最沒把握的三句話是哪三句、為什麼。</pre></div><p class="note"><a href="../index.html">← 回首頁</a>・<a href="deck.html">投影片</a>・<a href="worksheet.html">練習單</a></p></main><footer><p>© 2026 陳文盛（國立東華大學通識教育中心）× AI 協作團隊・<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant">CC BY-NC-SA 4.0</a>・<a href="https://github.com/cwstedctw/money-banking-ai-checkup">原始碼與 AI 助理規則（GitHub）</a></p><p>財報的著作權屬各發行機構，本站只連結官方檔案；矽谷銀行摘錄頁照 SEC 公開申報文件逐格重排。Financial reports belong to their issuers; this site links to the official files.</p></footer><script>
+(function(){
+  function fb(t){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='-1000px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return ok}
+  document.querySelectorAll('button.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-for')).textContent;var done=function(){var o=b.textContent;b.textContent=b.getAttribute('data-done');b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done')},1600)};
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,function(){if(fb(t))done()})}else if(fb(t)){done()}
+    });
+  });
+})();
+</script></body></html>

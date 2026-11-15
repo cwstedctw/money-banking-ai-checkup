@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prompts ①–⑤ (English session · JPMorgan Chase)</title><style>
+:root{--teal:#0E7C7B;--gold:#D9A441;--cream:#F4ECD8;--ink:#1A1A1A;--paper:#FFFDF8;--line:#E4D9C3}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC","Segoe UI",system-ui,sans-serif;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:24px 16px 56px}
+header.top{background:var(--teal);color:#fff;padding:28px 16px}
+header.top .in{max-width:760px;margin:0 auto}
+header.top h1{margin:0 0 6px;font-size:1.45rem;line-height:1.3;letter-spacing:.01em}
+header.top p{margin:0;opacity:.92;font-size:.95rem}
+h2{font-size:1.15rem;margin:28px 0 10px;color:var(--teal)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin:12px 0;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.card h3{margin:0 0 4px;font-size:1.08rem}
+.card .meta{color:#555;font-size:.92rem;margin:0 0 10px}
+.links{display:grid;grid-template-columns:1fr;gap:8px;margin:0;padding:0;list-style:none}
+@media(min-width:560px){.links{grid-template-columns:1fr 1fr}}
+.links a{display:block;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
+.links a:hover{border-color:var(--teal)}
+.links a small{display:block;font-weight:400;color:#666;font-size:.84rem}
+.links a.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+.links a.primary small{color:#e6f2f2}
+.note{font-size:.92rem;color:#444;margin:8px 0 0}
+ol.steps{padding-left:1.2em}ol.steps li{margin:6px 0}
+pre.prompt{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 14px;font:inherit;font-size:.98rem;margin:8px 0 0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;background:var(--teal);color:#fff;border-radius:999px;padding:2px 10px;font-size:.84rem;font-weight:700}
+button.copy{background:var(--gold);color:#1A1A1A;border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit}
+button.copy:active{transform:translateY(1px)}
+button.copy.done{background:var(--teal);color:#fff}
+.use{color:#555;font-size:.9rem;margin:4px 0 0}
+footer{max-width:760px;margin:0 auto;padding:0 16px 40px;color:#555;font-size:.86rem}
+footer a{color:var(--teal)}
+.lang{float:right;font-size:.9rem}.lang a{color:#fff;text-decoration:underline}
+img.qr{width:160px;height:160px;display:block;margin:8px 0}
+</style></head><body><header class="top"><div class="in"><h1>Prompts ①–⑤ (English session · JPMorgan Chase)</h1><p>Money and Banking · AI session 2 · 2026-11-18</p></div></header><main><p class="note"><a href="../index.html">← Home</a>・<a href="deck.html">Slides</a>・<a href="worksheet.html">Worksheet</a></p><p class="note">Works in Gemini Notebook (formerly NotebookLM), ChatGPT and Claude. Upload the report first, then paste the whole prompt. If it says "not found", that is the right answer — open the PDF yourself.</p><div class="card"><div class="pbar"><span class="tag">Prompt ①</span><button class="copy" data-for="p1" data-done="Copied ✓">Copy</button></div><p class="use">Study guide: paste after uploading the chapter notes</p><pre class="prompt" id="p1">Answer using only the lecture notes I uploaded. Use nothing else.
+1. Draw a chapter map: one sentence for what each section is about.
+2. Write five self-test questions (multiple choice or short answer); after each, give the page of the notes where the answer is.
+Cite a page number after every sentence. If something is not in the notes, say &quot;not in the notes&quot;.</pre></div><div class="card"><div class="pbar"><span class="tag">Prompt ②</span><button class="copy" data-for="p2" data-done="Copied ✓">Copy</button></div><p class="use">Silicon Valley Bank, three questions (teacher demo; try it with the excerpt page)</p><pre class="prompt" id="p2">Answer using only the balance sheet I uploaded. Use nothing else.
+1. At December 31, 2022, what were this bank&#x27;s total assets, net loans, held-to-maturity securities, total deposits and stockholders&#x27; equity? Point to the line for each number.
+2. In the held-to-maturity line, what fair value is shown in parentheses? How far is it from the carrying amount, and what share of stockholders&#x27; equity is that gap?
+3. How much of the bank&#x27;s deposits were above the deposit-insurance limit (uninsured deposits)?
+If a number is not in this document, answer &quot;not in this document&quot;. Do not guess.</pre></div><div class="card"><div class="pbar"><span class="tag">Prompt ③</span><button class="copy" data-for="p3" data-done="Copied ✓">Copy</button></div><p class="use">Bank check-up: paste after uploading the report; you get a table with pages</p><pre class="prompt" id="p3">Answer using only the JPMorgan Chase 2025 Annual Report I uploaded. Use nothing else.
+Make a table of these items from the Consolidated balance sheets at December 31, 2025 (units as printed; say that they are US$ millions):
+Total assets; Loans, net of allowance for loan losses; Available-for-sale securities; Held-to-maturity securities; Investment securities, net of allowance for credit losses; Trading assets; Deposits; Total liabilities; Total stockholders&#x27; equity.
+After each number write: the PDF page it is on, the page number printed on that page, and the line name exactly as printed.
+Then write out the formula for each of these five ratios (which cell over which cell); I will compute the ratios myself:
+1. Loans ÷ Total assets
+2. Securities ÷ Total assets (use &quot;Investment securities, net&quot;; tell me in one sentence whether trading assets should be included and why)
+3. Loans ÷ Deposits
+4. Deposits ÷ Total liabilities
+5. Equity ÷ Total assets
+Finish with one sentence: which column (year) you used and whether this is the consolidated statement.
+If you cannot find a number, write &quot;not found&quot;. Do not fill it in from any other source.</pre></div><div class="card"><div class="pbar"><span class="tag">Prompt ④</span><button class="copy" data-for="p4" data-done="Copied ✓">Copy</button></div><p class="use">Stress test: paste in the same conversation as Prompt ③</p><pre class="prompt" id="p4">Continue from the table above. Suppose 10% of deposits are withdrawn tomorrow, and the bank pays first out of &quot;Cash and due from banks&quot; and &quot;Deposits with banks&quot; (take both lines from the same report I uploaded, and give the PDF page for each).
+1. Which balance-sheet lines move, and by how much? Show it as T-accounts.
+2. Is there enough cash? If not, where does the rest come from?
+3. What do the five ratios become?
+Label every sentence: a number from the statement, your own calculation, or your inference?</pre></div><div class="card"><div class="pbar"><span class="tag">Prompt ⑤</span><button class="copy" data-for="p5" data-done="Copied ✓">Copy</button></div><p class="use">Homework: deep research on how two banks make money</p><pre class="prompt" id="p5">Use your deep-research mode to draft a comparison of how two banks make money (I will paste the five ratios we computed).
+Put a source link after every factual claim. Then list separately the three sentences you are least sure about, and why.</pre></div><p class="note"><a href="../index.html">← Home</a>・<a href="deck.html">Slides</a>・<a href="worksheet.html">Worksheet</a></p></main><footer><p>© 2026 陳文盛（國立東華大學通識教育中心）× AI 協作團隊・<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hant">CC BY-NC-SA 4.0</a>・<a href="https://github.com/cwstedctw/money-banking-ai-checkup">原始碼與 AI 助理規則（GitHub）</a></p><p>財報的著作權屬各發行機構，本站只連結官方檔案；矽谷銀行摘錄頁照 SEC 公開申報文件逐格重排。Financial reports belong to their issuers; this site links to the official files.</p></footer><script>
+(function(){
+  function fb(t){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='-1000px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return ok}
+  document.querySelectorAll('button.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-for')).textContent;var done=function(){var o=b.textContent;b.textContent=b.getAttribute('data-done');b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done')},1600)};
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,function(){if(fb(t))done()})}else if(fb(t)){done()}
+    });
+  });
+})();
+</script></body></html>

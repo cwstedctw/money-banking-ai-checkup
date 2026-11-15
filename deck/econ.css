@@ -1,0 +1,163 @@
+/* econ.css — 貨銀課 AI 第二輪（銀行體檢＋壓力測試）專用樣式。2026-11-15 建置者寫。
+   疊在 deck.css 之上；本案新增的 class 一律 ec- 前綴。
+   配色沿用 9 月同一門課：teal #0E7C7B、沙金 #D9A441、米白 #F4ECD8、深炭灰 #1A1A1A。
+   字型只用系統字（零網路字型）：Noto Sans TC → Microsoft JhengHei → Segoe UI。 */
+
+:root{
+  --teal:#0E7C7B; --teal-700:#0E7C7B; --teal-050:#E6F2F2;
+  --gold:#D9A441; --sand:#D9A441;
+  --cream:#F4ECD8; --ink:#1A1A1A; --mist:#5F6B6B;
+  --dark:#0A4A49; --dark-2:#0B3B3A;
+  --line:#CFD8D8; --code:#FBF7EC; --red:#B23A3A; --green:#2E7D4F;
+  --zh:'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif;
+  --zh-serif:'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif;
+  --lat:'Segoe UI','Noto Sans TC','Microsoft JhengHei',sans-serif;
+  --mono:Consolas,'Noto Sans TC','Microsoft JhengHei',monospace;
+}
+.slide{padding:40px 72px 80px; font-family:var(--lat)}
+.slide--light{background:var(--cream)}
+.slide--dark{background:var(--dark)}
+.footer-org{left:72px; bottom:30px}
+.seal{right:36px; bottom:22px; width:44px; height:44px}
+.kicker{font-size:14px; letter-spacing:.16em}
+.title{font-size:38px; line-height:1.2; font-weight:900; margin-top:6px; text-wrap:balance}
+.title--big{font-size:52px; line-height:1.18}
+.rule{margin-top:14px}
+html[lang="en"] .title{font-size:35px}
+/* 英文版：西文字型排第一，免得 ’ “ ” 這些標點被中文字型畫成全形（agent’s 會變成 agent’ s） */
+html[lang="en"]{--zh:'Segoe UI','Noto Sans TC',sans-serif; --zh-serif:'Segoe UI','Noto Sans TC',sans-serif; --lat:'Segoe UI','Noto Sans TC',sans-serif}
+html[lang="en"] .ec-ptext{font-family:'Segoe UI',Consolas,sans-serif}
+html[lang="en"] .title--big{font-size:48px}
+
+/* 主內容區：撐滿標題與底部一行之間 */
+.ec-main{flex:1 1 auto; min-height:0; display:flex; flex-direction:column; justify-content:center; gap:14px; margin-top:12px}
+.ec-main.top{justify-content:flex-start}
+.ec-main > *{flex-shrink:0}
+.ec-lead{font-size:23px; line-height:1.5; color:var(--mist); text-wrap:pretty}
+.slide--dark .ec-lead{color:var(--on-dark-dim)}
+.ec-lead b{color:var(--ink)}
+
+/* 底部一行（檢查點／✋ 互動） */
+.ec-bot{flex:0 0 auto; margin-top:12px; margin-right:64px; display:flex; gap:12px; align-items:baseline;
+  border-top:2px solid var(--line); padding-top:9px; font-size:21px; line-height:1.4; color:var(--ink); text-wrap:pretty}
+.ec-bot .tag{flex:0 0 auto; font-weight:800; color:var(--teal); white-space:nowrap}
+.ec-bot.hand .tag{color:#A0711C}
+.slide--dark .ec-bot{color:var(--on-dark); border-color:rgba(255,255,255,.25)}
+.slide--dark .ec-bot .tag{color:var(--gold)}
+
+/* 卡片與欄 */
+.ec-cols{display:flex; gap:18px; align-items:stretch}
+.ec-cols > *{flex:1 1 0; min-width:0}
+.ec-card{background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px 20px; font-size:21px; line-height:1.5; text-wrap:pretty}
+.ec-card h4{font-size:19px; color:var(--teal); letter-spacing:.04em; margin-bottom:6px}
+.ec-cols > .ec-card.wide{flex:1.6 1 0}
+.ec-card.gold{border-color:var(--gold)}
+.ec-card.gold h4{color:#A0711C}
+.ec-card.red{border-color:#E1B1B1}
+.ec-card.red h4{color:var(--red)}
+.ec-card ol,.ec-card ul{margin:2px 0 0 24px}
+.ec-card li{margin:3px 0}
+.ec-card .big{font-size:24px; font-weight:800; color:var(--ink)}
+.ec-card .num{font-family:var(--lat); font-weight:800; color:var(--teal); white-space:nowrap}
+.ec-note{font-size:17px; color:var(--mist); line-height:1.45; text-wrap:pretty}
+.slide--dark .ec-note{color:var(--on-dark-dim)}
+.ec-num{font-family:var(--lat); font-weight:700; white-space:nowrap}
+.ec-pg{display:inline-block; font-size:14px; font-weight:700; color:var(--teal); background:var(--teal-050);
+  border-radius:6px; padding:0 7px; margin-left:4px; white-space:nowrap; vertical-align:2px}
+
+/* 流程箭頭 */
+.ec-flow{display:flex; align-items:stretch; gap:10px}
+.ec-flow .st{flex:1 1 0; background:#fff; border:2px solid var(--line); border-radius:12px; padding:12px 14px; font-size:21px; line-height:1.4; text-wrap:pretty}
+.ec-flow .st b{display:inline-block; width:28px; height:28px; border-radius:50%; background:var(--teal); color:#fff; text-align:center; line-height:28px; font-size:15px; margin-right:6px}
+.ec-flow .st:last-child{flex:1.5 1 0}
+.ec-flow .ar{flex:0 0 auto; align-self:center; color:var(--gold); font-weight:900; font-size:24px}
+
+/* 三件事大卡 */
+.ec-three{display:flex; gap:18px}
+.ec-three .c{flex:1 1 0; background:#fff; border:2px solid var(--line); border-top:6px solid var(--teal); border-radius:14px; padding:16px 18px}
+.ec-three .c .n{font-size:40px; font-weight:900; color:var(--gold); line-height:1}
+.ec-three .c .h{font-size:28px; font-weight:800; margin-top:8px; line-height:1.35; text-wrap:pretty}
+.ec-three .c .e{font-size:19px; color:var(--mist); margin-top:10px; line-height:1.5; border-top:1px dashed var(--line); padding-top:8px; text-wrap:pretty}
+.ec-three .c .e b{color:var(--teal)}
+
+/* 提示語框（沿用 9 月 deck 的長相：左邊粗 teal 邊、左上標籤、右上複製鈕） */
+.ec-prompt{position:relative; background:var(--code); border:2px solid var(--line); border-left:8px solid var(--teal);
+  border-radius:0 12px 12px 0; padding:18px 18px 12px; margin-top:12px}
+.ec-prompt .ec-plab{position:absolute; top:-13px; left:12px; background:var(--teal); color:#fff; font-size:15px;
+  padding:2px 10px; border-radius:8px; letter-spacing:.06em; font-weight:700}
+.ec-copy{position:absolute; top:-14px; right:12px; background:#fff; color:var(--teal); border:2px solid var(--teal);
+  border-radius:8px; font-size:15px; padding:2px 12px; cursor:pointer; font-family:inherit; font-weight:700}
+.ec-copy:hover{background:var(--teal); color:#fff}
+.ec-ptext{margin:0; font-family:'Microsoft JhengHei','Noto Sans TC','Segoe UI',Consolas,sans-serif; font-size:22px; line-height:1.55;
+  white-space:pre-wrap; word-break:break-word; color:var(--ink); text-wrap:pretty}
+.ec-prompt.m .ec-ptext{font-size:19.5px; line-height:1.5}
+.ec-prompt.s .ec-ptext{font-size:17.5px; line-height:1.45}
+.ec-prompt.xs .ec-ptext{font-size:16px; line-height:1.4}
+.ec-prompt.narrow{max-width:980px}
+.ec-side{font-size:21px; color:var(--mist); line-height:1.5; text-wrap:pretty}
+
+/* 資產負債表簡圖（HTML 雙欄） */
+.ec-bs{display:flex; gap:0; border:2px solid var(--ink); border-radius:6px; background:#fff; overflow:hidden}
+.ec-bs .side{flex:1 1 0; display:flex; flex-direction:column}
+.ec-bs .side + .side{border-left:2px solid var(--ink)}
+.ec-bs .hd{font-weight:800; font-size:19px; text-align:center; padding:6px; background:var(--teal-050); color:var(--teal); border-bottom:2px solid var(--ink)}
+.ec-bs .blk{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 12px; font-size:20px; border-bottom:1px solid var(--line)}
+.ec-bs .blk:last-child{border-bottom:0}
+.ec-bs .blk .k{font-weight:700}
+.ec-bs .blk .tag{font-size:15px; font-weight:800; color:#A0711C; white-space:nowrap}
+.ec-bs .blk.c1{background:#EEF6F6}.ec-bs .blk.c2{background:#FBF1DC}.ec-bs .blk.c3{background:#E3EFEF}
+.ec-bs .blk.c4{background:#F5F5F2}.ec-bs .blk.c5{background:#FCEBD0}
+
+/* 表格（比率表、體檢表、三家對照） */
+table.ec-tb{border-collapse:collapse; width:100%; background:#fff; font-size:21px}
+table.ec-tb th,table.ec-tb td{border:2px solid var(--line); padding:6px 10px; text-align:left; vertical-align:middle; line-height:1.35}
+table.ec-tb th{background:var(--teal-050); color:var(--teal); font-weight:800}
+table.ec-tb td.r,table.ec-tb th.r{text-align:right; font-family:var(--lat); font-variant-numeric:tabular-nums; white-space:nowrap}
+table.ec-tb td.c,table.ec-tb th.c{text-align:center}
+table.ec-tb td.blank{color:#B5BCBC}
+table.ec-tb td.hi{background:#FCEBD0; font-weight:800}
+table.ec-tb.sm{font-size:19px}
+table.ec-tb.sm th,table.ec-tb.sm td{padding:4px 8px}
+table.ec-tb .q{color:var(--mist); font-size:.88em}
+
+/* T 字帳 */
+.ec-t{background:#fff; border-radius:8px; padding:8px 14px 10px; border:2px solid var(--line)}
+.ec-t .tt{text-align:center; font-weight:800; font-size:19px; color:var(--teal); margin-bottom:4px}
+.ec-t .tb{display:flex; border-top:3px solid var(--ink)}
+.ec-t .tb > div{flex:1 1 0; padding:6px 10px; font-size:20px; line-height:1.55; min-height:60px}
+.ec-t .tb > div + div{border-left:3px solid var(--ink)}
+.ec-t .tb .hh{font-weight:800; font-size:15px; color:var(--mist); display:block; margin-bottom:2px}
+.ec-t .row{display:flex; justify-content:space-between; gap:10px}
+.ec-t .row .v{font-family:var(--lat); font-weight:700; white-space:nowrap; color:var(--red)}
+.ec-t .row .v.z{color:var(--mist)}
+.ec-t .blankline{border-bottom:1.5px dashed #B5BCBC; height:34px}
+
+/* 一列「名稱……數字」 */
+.ec-kv{display:flex; justify-content:space-between; align-items:baseline; gap:14px}
+.ec-kv .k{flex:1 1 auto; min-width:0}
+.ec-kv .v{flex:0 0 auto; font-family:var(--lat); font-weight:800; white-space:nowrap; color:var(--red)}
+.ec-kv + .ec-kv{margin-top:4px}
+
+/* 推論標籤 */
+.ec-tagl{display:inline-block; font-size:14px; font-weight:800; border-radius:6px; padding:0 7px; margin-right:6px; vertical-align:2px; white-space:nowrap}
+.ec-tagl.on{background:var(--teal-050); color:var(--teal)}
+.ec-tagl.inf{background:#FCEBD0; color:#8A5A10}
+
+/* 深底頁 */
+.slide--dark .ec-card{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.25); color:var(--on-dark)}
+.slide--dark .ec-card h4{color:var(--gold)}
+.ec-sub{font-size:26px; font-weight:500; color:var(--on-dark-dim); margin-top:16px; line-height:1.5}
+.ec-chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+.ec-chips span{border:1.5px solid rgba(217,164,65,.55); color:var(--on-dark); border-radius:999px; padding:6px 16px; font-size:20px}
+.ec-url{font-family:var(--mono); font-size:16px; line-height:1.4; word-break:break-all; color:var(--on-dark)}
+.ec-disc{font-size:29px; line-height:1.55; font-weight:700; color:#fff; text-wrap:pretty}
+.ec-links{display:flex; flex-direction:column; gap:7px}
+.ec-links .lk b{display:block; font-size:18px; color:var(--gold); margin-bottom:1px}
+
+/* SVG 圖 */
+.ec-svg text{font-family:var(--lat)}
+.ec-svg .lbl{font-size:16px; font-weight:700; fill:var(--ink)}
+.ec-svg .val{font-size:16px; font-weight:800; fill:var(--ink)}
+.ec-svg .sml{font-size:13px; fill:var(--mist)}
+
+@media print{.ec-copy{display:none!important}}

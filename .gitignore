@@ -1,0 +1,21 @@
+# 老師用的答案檔永遠不進公開 repo
+teacher/
+# 官方財報 PDF 不進 repo（data/README.md 有網址與 sha256）；網站上只放我們自己排的摘錄與投影片 PDF
+data/*.pdf
+demo/agent-zh/data/
+demo/agent-en/data/
+demo/agent-zh/成品*/
+demo/agent-en/成品*/
+demo/agent-en/output*/
+# 產線中間產物
+deck/build/
+qa/
+__pycache__/
+*.pyc
+~$*
+# repo 根的打包投影片與 PDF 由產線重產；網站用的在 docs/
+/deck-zh.html
+/deck-en.html
+/deck-zh.pdf
+/deck-en.pdf
+/demo/svb/*.pdf

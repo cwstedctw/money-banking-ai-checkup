@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bank Check-up Worksheet: JPMorgan Chase &amp; Co.</title><style>
+:root{--bg:#FAF8F2;--surface:#FFFFFF;--surface-2:#F1F5F4;--ink:#132525;--ink-soft:#3E5656;--line:#D6E2E1;
+--teal:#0E7C7B;--teal-tint:#E2F0EF;--gold:#D9A441;--gold-tint:#FBF0D9;--code-bg:#EEF3F2;color-scheme:light;
+--zh:"Microsoft JhengHei","Noto Sans TC","PingFang TC",system-ui,sans-serif;--mono:Consolas,"Cascadia Mono",Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0B1A1A;--surface:#112424;--surface-2:#173030;--ink:#E6F2F2;--ink-soft:#BBD0CF;--line:#26403F;--teal:#5CC8C6;--teal-tint:#123A39;--gold:#E8B85A;--gold-tint:#3A2F18;--code-bg:#0D1F1F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1A1A;--surface:#112424;--surface-2:#173030;--ink:#E6F2F2;--ink-soft:#BBD0CF;--line:#26403F;--teal:#5CC8C6;--teal-tint:#123A39;--gold:#E8B85A;--gold-tint:#3A2F18;--code-bg:#0D1F1F;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--zh)}
+main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1.title{font-size:1.7rem;line-height:1.3;margin:.2em 0;color:var(--teal)}
+.sub{color:var(--ink-soft);margin:0 0 1.2em}
+h2{font-size:1.3rem;margin:1.8em 0 .5em;color:var(--teal);border-bottom:2px solid var(--line);padding-bottom:.2em}
+h3{font-size:1.08rem;margin:1.2em 0 .4em}
+.tw{overflow-x:auto;margin:.6em 0 1em}
+table{border-collapse:collapse;width:100%;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--teal-tint)}
+td.blank{height:3em}
+.note{background:var(--gold-tint);border-left:5px solid var(--gold);padding:10px 14px;margin:1em 0;border-radius:4px}
+.prompt{position:relative;background:var(--code-bg);border-left:5px solid var(--teal);border-radius:4px;margin:.4em 0 1.2em}
+.prompt pre{margin:0;padding:14px 16px;white-space:pre-wrap;word-break:break-word;font:15px/1.7 var(--zh)}
+.prompt.en pre{font-family:var(--mono)}
+.plabel{font-weight:700;color:var(--teal);margin-top:1em}
+.copy{position:absolute;top:6px;right:6px;font:13px var(--zh);padding:4px 10px;border:1px solid var(--teal);background:var(--surface);color:var(--teal);border-radius:4px;cursor:pointer}
+details.stuck{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 14px;margin:1em 0}
+details.stuck summary{cursor:pointer;font-weight:700}
+.tacct{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--ink);max-width:640px;margin:.4em 0 1em}
+.tacct div{min-height:9em;padding:6px 10px}.tacct div:first-child{border-right:3px solid var(--ink)}
+.tacct b{display:block;text-align:center}
+@media print{.copy{display:none}details.stuck{display:block}details.stuck>*{display:block}}
+</style></head><body><main>
+<h1 class="title">Bank Check-up Worksheet: JPMorgan Chase &amp; Co.</h1>
+<p class="sub">Money and Banking, AI session 2 | 2026-11-18 (Wed) 11:00–11:50 | Wen-Sheng Chen (Center for General Education, National Dong Hwa University)</p>
+<h2>0  What we do today</h2>
+<ol><li>Hand JPMorgan Chase’s annual report to an AI and ask it for a table of nine numbers, each with the page it came from.</li><li>Compute the five ratios yourself, then pick three cells and check them in the original: units, year column, consolidated or not.</li><li>Run one stress test: work it out first on paper with T-accounts (a two-column sheet: assets on the left, liabilities and equity on the right), then ask the AI and mark which of its sentences come from the statement and which are its own inference.</li></ol>
+<h3>What to bring</h3>
+<ul><li>A laptop or a phone (a laptop makes the tables easier to read).</li><li>An AI that can take a PDF upload, logged in before class: <b>Gemini Notebook</b> (formerly NotebookLM; notebook.google.com, with a Google account), or ChatGPT, or Claude. The same prompt works in all three.</li><li>A calculator, or the spreadsheet “checkup-template.xlsx” (on the course e-Learning site; type the numbers and the ratios compute themselves).</li></ul>
+<div class="note"><b>How to read the step table: </b>each step has four columns — what to do, what to type or paste, what you should see, and how long. “How long” gives where the step falls in the 50-minute class; where the teacher has not timed it, it says so. If you get stuck, see section 3.</div>
+<h2>1  Steps 1–7</h2>
+<div class="tw"><table><tr><th>Step</th><th>What to do</th><th>Type / paste</th><th>You should see</th><th>How long</th></tr><tr><td><b>1 Get the report</b></td><td>Download the PDF from this week’s section on e-Learning, or open the shared notebook the teacher sends you.</td><td>Nothing to type.</td><td>One file: JPMorgan Chase &amp; Co. 2025 Annual Report, 364 pages (JPM-2025-annual-report.pdf). The balance sheet is on PDF page 199, which is printed as page 167. The book has two page numberings — always say which one you mean.</td><td>From minute 13; better to download before class.</td></tr><tr><td><b>2 Upload it to the AI</b></td><td>Gemini Notebook: New notebook → Add source → Upload. ChatGPT / Claude: the paper-clip next to the chat box → choose the file.</td><td>Nothing to type.</td><td>The file name appears in the source list (or above the chat box). If 364 pages will not upload, give it only PDF page 199 (print that page to its own PDF), or switch to Gemini Notebook.</td><td>Depends on the network; not timed.</td></tr><tr><td><b>3 Paste Prompt ③</b></td><td>Copy all of Prompt ③ from section 2, paste it, send.</td><td>Prompt ③ (full text in section 2).</td><td>A table of nine numbers; after each one, the PDF page, the printed page and the line name as printed; a last sentence on which year column and whether it is consolidated. In Gemini Notebook each answer has small source markers that jump back to the page.</td><td>Waiting for the AI; not timed.</td></tr><tr><td><b>4 Compute the five ratios</b></td><td>Copy the numbers into Table 1 “Check-up table” and compute; or open “checkup-template.xlsx”, type numerator and denominator, and the ratio computes itself. Securities = “Investment securities, net” (trading assets not included).</td><td>Calculator: numerator ÷ denominator × 100.</td><td>Five percentages, each with its numerator, denominator and page. If yours differs from a classmate’s, do not change it yet — step 5 checks the original.</td><td>Steps 1–4 run until minute 28.</td></tr><tr><td><b>5 Check three cells</b></td><td>In pairs. Open the PDF at the page the AI gave and check three cells each: units (US$ millions), year column (2025, not 2024), consolidated or not, and PDF page vs printed page.</td><td>Nothing to type.</td><td>Table 3 “Spot-check log” has three rows filled in. Found a mistake? Raise your hand.</td><td>Minutes 28–35.</td></tr><tr><td><b>6 Stress test</b></td><td>First do the T-accounts in Table 2 by hand: 10% of deposits leave tomorrow and the bank pays first out of “Cash and due from banks” and “Deposits with banks”. Is it enough? Then paste Prompt ④.</td><td>Prompt ④ (full text in section 2).</td><td>The AI lists the T-accounts, whether the cash is enough, and the five new ratios. Mark each of its sentences “on the statement”, “calculated” or “inference”, then compare with your own numbers.</td><td>Minutes 35–44; 3 minutes on paper first.</td></tr><tr><td><b>7 Disclosure sentence</b></td><td>Copy the disclosure sentence into Table 4 and fill in which AI you used and what it did.</td><td>Nothing to type.</td><td>One complete disclosure sentence; the homework needs one too.</td><td>Minutes 44–50.</td></tr></table></div>
+<h2>2  Prompts to paste (word for word; copy the whole block)</h2>
+<p>They work in all three AIs. Paste Prompt ③ at step 3. Paste Prompt ④ in the same chat at step 6 — it builds on the table above.</p>
+<div class="plabel">Prompt ③ (Bank check-up)</div><div class="prompt en"><button type="button" class="copy" data-done="Copied">Copy</button><pre>Answer using only the JPMorgan Chase 2025 Annual Report I uploaded. Use nothing else.
+Make a table of these items from the Consolidated balance sheets at December 31, 2025 (units as printed; say that they are US$ millions):
+Total assets; Loans, net of allowance for loan losses; Available-for-sale securities; Held-to-maturity securities; Investment securities, net of allowance for credit losses; Trading assets; Deposits; Total liabilities; Total stockholders&#x27; equity.
+After each number write: the PDF page it is on, the page number printed on that page, and the line name exactly as printed.
+Then write out the formula for each of these five ratios (which cell over which cell); I will compute the ratios myself:
+1. Loans ÷ Total assets
+2. Securities ÷ Total assets (use &quot;Investment securities, net&quot;; tell me in one sentence whether trading assets should be included and why)
+3. Loans ÷ Deposits
+4. Deposits ÷ Total liabilities
+5. Equity ÷ Total assets
+Finish with one sentence: which column (year) you used and whether this is the consolidated statement.
+If you cannot find a number, write &quot;not found&quot;. Do not fill it in from any other source.</pre></div>
+<div class="plabel">Prompt ④ (Stress test)</div><div class="prompt en"><button type="button" class="copy" data-done="Copied">Copy</button><pre>Continue from the table above. Suppose 10% of deposits are withdrawn tomorrow, and the bank pays first out of &quot;Cash and due from banks&quot; and &quot;Deposits with banks&quot; (take both lines from the same report I uploaded, and give the PDF page for each).
+1. Which balance-sheet lines move, and by how much? Show it as T-accounts.
+2. Is there enough cash? If not, where does the rest come from?
+3. What do the five ratios become?
+Label every sentence: a number from the statement, your own calculation, or your inference?</pre></div>
+<h2>3  If you get stuck</h2><details class="stuck"><summary>Open for common problems</summary>
+<ul><li><b>Gemini Notebook will not open (school account blocked, cannot sign in)</b>: switch to ChatGPT or Claude, upload the same PDF, paste the same prompt.</li><li><b>The upload fails</b>: 364 pages may be too large for some chat tools. Give it only PDF page 199, or use Gemini Notebook.</li><li><b>A number cannot be found</b>: look at the page the AI named, and check which numbering it used — PDF page 199 is printed as page 167.</li><li><b>The AI says “not found”</b>: it may be right. Open the page and look yourself.</li><li><b>Your ratios differ a lot from a classmate’s</b>: the usual four causes are PDF page vs printed page, gross loans (“Loans”) instead of “Loans, net of allowance for loan losses”, trading assets counted as securities or not, and copying the 2024 column.</li><li><b>Anything else</b>: paste the whole screen or the full error message into the AI and ask what to do. Never paste your account or password.</li><li><b>Nothing works</b>: follow the teacher’s demo and compute the numbers with a calculator.</li></ul>
+</details>
+<h2>Table 1  Check-up table (compute the ratios yourself)</h2>
+<div class="tw"><table><tr><th>Ratio</th><th>Numerator (line + number)</th><th>Denominator (line + number)</th><th>Ratio (%)</th><th>PDF page</th><th>Checked ✓</th></tr><tr><td><b>1  Loans ÷ Total assets</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>2  Securities ÷ Total assets</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>3  Loans ÷ Deposits</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>4  Deposits ÷ Total liabilities</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>5  Equity ÷ Total assets</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<div class="tw"><table><tr><td>Units</td><td class="blank"></td><td>Year column</td><td class="blank"></td><td>Consolidated?</td><td class="blank"></td></tr></table></div>
+<p>Securities = “Investment securities, net of allowance for credit losses” (= Available-for-sale securities + Held-to-maturity securities). Trading assets are a separate line: Prompt ③ asks the AI whether they should count.</p>
+<h2>Table 2  Stress test: 10% of deposits leave tomorrow</h2>
+<div class="tw"><table><tr><th>Numbers you need (find them in the report)</th><th>Amount (US$ million)</th><th>PDF page</th></tr><tr><td>Deposits</td><td class="blank"></td><td class="blank"></td></tr><tr><td>Cash and due from banks</td><td class="blank"></td><td class="blank"></td></tr><tr><td>Deposits with banks</td><td class="blank"></td><td class="blank"></td></tr><tr><td>10% of deposits = Deposits × 10%</td><td class="blank"></td><td>—</td></tr><tr><td>Cash on hand = Cash and due from banks + Deposits with banks</td><td class="blank"></td><td>—</td></tr><tr><td>Enough? If not, how much short, and where does the rest come from?</td><td class="blank"></td><td>—</td></tr></table></div>
+<div class="note">First copy two lines from PDF page 199: Cash and due from banks; Deposits with banks. Then fill the T-account.</div>
+<p><b>T-accounts: which lines move, and by how much (minus sign for a decrease)</b></p>
+<div class="tacct"><div><b>Assets</b></div><div><b>Liabilities and equity</b></div></div>
+<div class="tw"><table><tr><th>1 Loans ÷ Total assets</th><th>2 Securities ÷ Total assets</th><th>3 Loans ÷ Deposits</th><th>4 Deposits ÷ Total liabilities</th><th>5 Equity ÷ Total assets</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<p><b>The AI’s sentences: on the statement, calculated, or inference?</b> (copy three of them)</p>
+<div class="tw"><table><tr><th>What the AI said</th><th>On the statement / calculated / inference</th><th>Basis (page or reason)</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<h2>Table 3  Spot-check log (three cells against the original)</h2>
+<div class="tw"><table><tr><th>Cell (which number)</th><th>PDF page</th><th>Number in the original</th><th>Right or wrong</th><th>Why (units / year column / consolidated / page numbering / other)</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<h2>Table 4  Disclosure sentence (copy it and fill in the blanks)</h2>
+<div class="note"><b>This work used __________ (AI tool) to help with ______________ (what it did); our group checked the numbers against the original documents.</b></div>
+<div class="tw"><table><tr><td class="blank"></td></tr></table></div>
+</main><script>
+document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+var txt=btn.parentNode.querySelector('pre').textContent;var lbl=btn.textContent;
+function ok(){btn.textContent=btn.dataset.done;setTimeout(function(){btn.textContent=lbl},1500)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback()})}else{fallback()}
+function fallback(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)}
+})});
+</script></body></html>

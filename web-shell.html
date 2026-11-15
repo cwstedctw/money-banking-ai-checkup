@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="<!--LANG-->"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title><!--TITLE--></title>
+<style><!--DECK_STYLES--></style>
+<style>
+html,body{margin:0;background:#06201f;color:#e6f2f2;font-family:'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif}
+html[lang="en"],html[lang="en"] body{font-family:'Segoe UI','Noto Sans TC',sans-serif}
+.deck-bar{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px;border-bottom:1px solid #294441}
+.deck-bar strong{font-size:17px}.deck-tools{display:flex;gap:10px;align-items:center}.deck-tools button,.deck-tools select,.deck-foot button{font:inherit;color:#e6f2f2;border:1px solid #62817b;border-radius:6px;background:#163b36;padding:8px 12px;cursor:pointer}.deck-tools select{max-width:340px}.deck-tools button:hover,.deck-foot button:hover{background:#24534a}
+button:focus-visible,select:focus-visible{outline:3px solid #e8bd67;outline-offset:2px}.stage-wrap{position:relative;margin:22px auto 0}.sheet{display:none;width:1280px;height:720px;position:absolute;left:0;top:0;transform-origin:top left}.sheet.active{display:block}.deck-foot{display:flex;justify-content:center;gap:18px;align-items:center;padding:16px}.deck-foot output{min-width:60px;text-align:center}.hint{font-size:13px;color:#adcdc5;text-align:center}
+@media(max-width:760px){.deck-bar{height:auto;padding:12px;flex-wrap:wrap}.deck-bar strong{font-size:15px}.deck-tools{width:100%;flex-wrap:wrap}.deck-tools select{flex:1;min-width:0}.hint{padding:0 12px}}
+@media print{@page{size:1280px 720px;margin:0}html,body{background:#fff;width:1280px}.deck-bar,.deck-foot,.hint,.ec-copy{display:none!important}.stage-wrap{width:1280px!important;height:auto!important;margin:0}.sheet,.sheet.active{display:block!important;position:relative;transform:none!important;width:1280px;height:720px;break-after:page;page-break-after:always}.sheet:last-child{break-after:auto;page-break-after:auto}.slide{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<header class="deck-bar"><strong><!--BAR--></strong><nav class="deck-tools" aria-label="<!--TOOLS_LABEL-->"><select id="toc" aria-label="<!--TOC_LABEL-->"><!--OPTIONS--></select><button id="fullscreen"><!--FULL--></button><button id="print"><!--PRINT--></button></nav></header>
+<main class="stage-wrap" id="stage"><!--SLIDES--></main>
+<nav class="deck-foot" aria-label="<!--NAV_LABEL-->"><button id="previous"><!--PREV--></button><output id="count" aria-live="polite"></output><button id="next"><!--NEXT--></button></nav><p class="hint"><!--HINT--></p>
+<script>
+const sheets=[...document.querySelectorAll('.sheet')],toc=document.getElementById('toc');let current=0;
+function fit(){const s=Math.min((innerWidth-32)/1280,Math.max(150,innerHeight-190)/720,1.5),stage=document.getElementById('stage');stage.style.width=(1280*s)+'px';stage.style.height=(720*s)+'px';sheets.forEach(x=>x.style.transform=`scale(${s})`)}
+function show(n,write=true){current=Math.max(0,Math.min(sheets.length-1,n));sheets.forEach((x,i)=>{x.classList.toggle('active',i===current);x.setAttribute('aria-hidden',i===current?'false':'true')});toc.value=current;document.getElementById('count').textContent=`${current+1} / ${sheets.length}`;document.getElementById('previous').disabled=current===0;document.getElementById('next').disabled=current===sheets.length-1;if(write)history.replaceState(null,'',`#slide-${current+1}`);fit()}
+function fromHash(){const m=location.hash.match(/^#slide-(\d+)$/);show(m?Number(m[1])-1:0,false)}
+toc.addEventListener('change',()=>{show(Number(toc.value));toc.blur()});document.getElementById('previous').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);document.getElementById('print').onclick=()=>window.print();document.getElementById('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{document.getElementById('fullscreen').textContent='<!--FULL_FAIL-->'}};
+addEventListener('keydown',e=>{if(e.target.closest('select,input,textarea')||e.ctrlKey||e.metaKey||e.altKey)return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1)}else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(sheets.length-1)}});addEventListener('resize',fit);addEventListener('hashchange',fromHash);fromHash();
+// 提示語框右上的「複製」：拿 <pre> 的原文（textContent＝內容規格 §三 一字不漏）。
+// 1) navigator.clipboard（file:// 上 Chrome／Edge 通常可用）2) textarea＋execCommand 舊做法 3) 都不行就把整段選起來，講者按 Ctrl+C。
+// data-via 記下這次走哪一條（驗收程式讀它）。
+document.querySelectorAll('.ec-copy').forEach(btn=>{
+  btn.addEventListener('click',async()=>{
+    const pre=btn.parentElement.querySelector('.ec-ptext'),txt=pre.textContent,orig=btn.dataset.label||btn.textContent;btn.dataset.label=orig;
+    const flash=m=>{btn.textContent=m;setTimeout(()=>{btn.textContent=orig},1800);btn.blur()};
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(txt);btn.dataset.via='clipboard';flash(btn.dataset.done);return}}catch(e){}
+    try{const t=document.createElement('textarea');t.value=txt;t.setAttribute('readonly','');t.style.cssText='position:fixed;top:-1000px;left:-1000px;opacity:0';document.body.appendChild(t);t.select();t.setSelectionRange(0,txt.length);const ok=document.execCommand('copy');t.remove();if(ok){btn.dataset.via='execCommand';flash(btn.dataset.done);return}}catch(e){}
+    try{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);btn.dataset.via='selection';flash(btn.dataset.sel)}catch(e){}
+  });
+});
+</script></body></html>

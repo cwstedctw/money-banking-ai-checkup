@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>銀行體檢學生練習單：彰化銀行</title><style>
+:root{--bg:#FAF8F2;--surface:#FFFFFF;--surface-2:#F1F5F4;--ink:#132525;--ink-soft:#3E5656;--line:#D6E2E1;
+--teal:#0E7C7B;--teal-tint:#E2F0EF;--gold:#D9A441;--gold-tint:#FBF0D9;--code-bg:#EEF3F2;color-scheme:light;
+--zh:"Microsoft JhengHei","Noto Sans TC","PingFang TC",system-ui,sans-serif;--mono:Consolas,"Cascadia Mono",Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0B1A1A;--surface:#112424;--surface-2:#173030;--ink:#E6F2F2;--ink-soft:#BBD0CF;--line:#26403F;--teal:#5CC8C6;--teal-tint:#123A39;--gold:#E8B85A;--gold-tint:#3A2F18;--code-bg:#0D1F1F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1A1A;--surface:#112424;--surface-2:#173030;--ink:#E6F2F2;--ink-soft:#BBD0CF;--line:#26403F;--teal:#5CC8C6;--teal-tint:#123A39;--gold:#E8B85A;--gold-tint:#3A2F18;--code-bg:#0D1F1F;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--zh)}
+main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1.title{font-size:1.7rem;line-height:1.3;margin:.2em 0;color:var(--teal)}
+.sub{color:var(--ink-soft);margin:0 0 1.2em}
+h2{font-size:1.3rem;margin:1.8em 0 .5em;color:var(--teal);border-bottom:2px solid var(--line);padding-bottom:.2em}
+h3{font-size:1.08rem;margin:1.2em 0 .4em}
+.tw{overflow-x:auto;margin:.6em 0 1em}
+table{border-collapse:collapse;width:100%;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--teal-tint)}
+td.blank{height:3em}
+.note{background:var(--gold-tint);border-left:5px solid var(--gold);padding:10px 14px;margin:1em 0;border-radius:4px}
+.prompt{position:relative;background:var(--code-bg);border-left:5px solid var(--teal);border-radius:4px;margin:.4em 0 1.2em}
+.prompt pre{margin:0;padding:14px 16px;white-space:pre-wrap;word-break:break-word;font:15px/1.7 var(--zh)}
+.prompt.en pre{font-family:var(--mono)}
+.plabel{font-weight:700;color:var(--teal);margin-top:1em}
+.copy{position:absolute;top:6px;right:6px;font:13px var(--zh);padding:4px 10px;border:1px solid var(--teal);background:var(--surface);color:var(--teal);border-radius:4px;cursor:pointer}
+details.stuck{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 14px;margin:1em 0}
+details.stuck summary{cursor:pointer;font-weight:700}
+.tacct{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--ink);max-width:640px;margin:.4em 0 1em}
+.tacct div{min-height:9em;padding:6px 10px}.tacct div:first-child{border-right:3px solid var(--ink)}
+.tacct b{display:block;text-align:center}
+@media print{.copy{display:none}details.stuck{display:block}details.stuck>*{display:block}}
+</style></head><body><main>
+<h1 class="title">銀行體檢學生練習單：彰化銀行</h1>
+<p class="sub">貨幣銀行學 AI 第二輪｜2026-11-16（一）11:35–12:25｜陳文盛（東華大學通識教育中心）</p>
+<h2>0　今天要做什麼</h2>
+<ol><li>把彰化銀行的財報交給 AI，請它把八個數字做成一張表，每一格都寫出在 PDF 第幾頁。</li><li>五個比率你自己算，再挑三格回原文查：單位、年度欄、合併或個體。</li><li>做一次壓力測試：先在紙上用 T 字帳（左邊資產、右邊負債與權益的兩欄記帳格）算，再問 AI，標出它哪一句是從報表來、哪一句是它推的。</li></ol>
+<h3>要帶什麼</h3>
+<ul><li>筆電或手機（筆電比較好看表格）。</li><li>一個能上傳 PDF 的 AI，上課前先登入：<b>AI 筆記本</b>（Gemini Notebook，原名 NotebookLM；網址 notebook.google.com，用 Google 帳號）、或 ChatGPT、或 Claude。三個都能貼同一段提示語。</li><li>計算機，或試算表範本「體檢表範本.xlsx」（在 e學苑，填數字比率自動算）。</li></ul>
+<div class="note"><b>怎麼讀這張表：</b>每一步分四欄——做什麼、打什麼／貼什麼、你應該看到什麼、多久。「多久」寫的是這一步落在 50 分鐘課堂的第幾分鐘；老師沒有量過的就照實寫「沒量過」。卡住了先看第 3 節。</div>
+<h2>1　步驟 1–7</h2>
+<div class="tw"><table><tr><th>步驟</th><th>做什麼</th><th>打什麼／貼什麼</th><th>你應該看到</th><th>多久</th></tr><tr><td><b>1 拿到財報</b></td><td>到 e學苑 本週的標籤下載兩份 PDF；或打開老師分享的共用 AI 筆記本。</td><td>不用打。</td><td>兩個檔：彰化銀行 114 年度財務報告（10 頁，檔名 CHB-2025-FY-consolidated-financial-report.pdf）、彰化銀行 2025 年年報（123 頁，檔名 CHB-2025-annual-report.pdf）。這次的數字都在「財務報告」那份。</td><td>第 13 分鐘開始；最好上課前先下載。</td></tr><tr><td><b>2 上傳給 AI</b></td><td>課內先只上傳 10 頁的財報（CHB-2025-FY-consolidated-financial-report.pdf）；年報（123 頁）回家做經營方式時再傳。AI 筆記本：新筆記本 → 新增來源 → 上傳。ChatGPT／Claude：對話框旁的迴紋針 → 選檔。</td><td>不用打。</td><td>來源清單（或對話框上方）出現財報的檔名。用共用筆記本的人，左邊來源已經有了。</td><td>看網路速度，沒量過。</td></tr><tr><td><b>3 貼提示語 ③</b></td><td>複製第 2 節「提示語 ③」整段，貼上、送出。</td><td>提示語 ③（全文在第 2 節）。</td><td>一張表：八個數字，每一格後面有 PDF 頁碼和科目原文；最後一句說是合併還是個體、哪一年的欄。AI 筆記本的回答旁有出處小標，點了會跳回原文那一頁。</td><td>等 AI 做表，沒量過。</td></tr><tr><td><b>4 自己算五個比率</b></td><td>把 AI 表上的數字抄進附表一「體檢表」，自己算；或打開「體檢表範本.xlsx」填分子、分母，比率自動算。證券投資＝三行金融資產相加（財報沒有「證券投資」這一列）。</td><td>計算機：分子 ÷ 分母 × 100。</td><td>五個百分比，每個都寫了分子、分母和 PDF 頁碼。跟同學不一樣先別改，第 5 步回原文查。</td><td>步驟 1–4 做到第 28 分鐘。</td></tr><tr><td><b>5 抽三格回原文</b></td><td>兩人一組。打開 PDF 翻到 AI 說的那一頁，各挑三格核對：單位（千元）、年度欄（114 年，不是 113 年）、合併或個體。</td><td>不用打。</td><td>附表三「抽查紀錄」填好三列；找到錯的舉手。</td><td>第 28–35 分鐘。</td></tr><tr><td><b>6 壓力測試</b></td><td>先在附表二的 T 字帳手算：明天一成存款被提走，先用「現金及約當現金」和「存放央行及拆借銀行同業」付，夠不夠？再貼提示語 ④。</td><td>提示語 ④（全文在第 2 節）。</td><td>AI 列出 T 字帳、手上的錢夠不夠、五個新比率。你在它每一句旁標「表上」「算的」或「推論」，再拿自己算的對。</td><td>第 35–44 分鐘；紙上先算 3 分鐘。</td></tr><tr><td><b>7 揭露句</b></td><td>把揭露句抄在附表四，填上你用了哪個 AI、它幫你做了什麼。</td><td>不用打。</td><td>一句完整的揭露句；回家作業也要附。</td><td>第 44–50 分鐘。</td></tr></table></div>
+<h2>2　要貼的提示語（一字不漏，整段複製）</h2>
+<p>三個 AI 都能貼。提示語 ③ 在第 3 步貼；提示語 ④ 要接在同一個對話裡（它會用到上面那張表），第 6 步貼。</p>
+<div class="plabel">提示語 ③（銀行體檢）</div><div class="prompt"><button type="button" class="copy" data-done="已複製">複製</button><pre>請只根據我上傳的彰化銀行財報回答，不要用其他資料。
+請做一張表，列出 114 年 12 月 31 日合併資產負債表的這幾個數字（單位照原文，寫清楚是千元）：
+資產總計、貼現及放款－淨額、透過損益按公允價值衡量之金融資產、透過其他綜合損益按公允價值衡量之金融資產、按攤銷後成本衡量之債務工具投資、存款及匯款、負債總計、權益總計。
+每一格後面寫出：它在 PDF 第幾頁、科目名稱的原文。
+然後把下面五個比率的算式列出來（分子、分母各是哪一格），比率我自己算：
+1. 放款 ÷ 總資產
+2. 證券投資（上面三行金融資產相加）÷ 總資產
+3. 放款 ÷ 存款
+4. 存款 ÷ 總負債
+5. 權益 ÷ 總資產
+最後用一句話說明：你用的是合併報表還是個體報表、哪一欄的年度。
+找不到的數字寫「找不到」，不要用其他來源補。</pre></div>
+<div class="plabel">提示語 ④（壓力測試）</div><div class="prompt"><button type="button" class="copy" data-done="已複製">複製</button><pre>接著上面那張表。假設明天有一成的存款被提走，銀行先用「現金及約當現金」和「存放央行及拆借銀行同業」來付（這兩列的數字請從同一份財報找出來，並標 PDF 第幾頁）。
+1. 資產負債表哪幾行會動？各動多少？用 T 字帳列出來。
+2. 手上的錢夠不夠？不夠的部分要從哪裡來？
+3. 五個比率各變成多少？
+每一句話請標明：這是從報表上來的數字、你算出來的，還是你的推論。</pre></div>
+<h2>3　卡住了</h2><details class="stuck"><summary>點開看常見狀況</summary>
+<ul><li><b>AI 筆記本開不了（學校帳號被擋、登不進去）</b>：換 ChatGPT 或 Claude，上傳同一份 PDF、貼同一段提示語。</li><li><b>數字找不到</b>：先看 AI 說的是第幾頁；再確認你打開的是「財務報告」（10 頁），不是「年報」（123 頁）——年報裡沒有完整的合併資產負債表。合併資產負債表在財務報告 PDF 第 1 頁（頁面上印的頁碼是 8）。</li><li><b>AI 說「找不到」</b>：它可能是對的。例如財報沒有「證券投資」這一列，要三行金融資產自己相加。翻到那一頁自己看。</li><li><b>比率跟同學差很多</b>：最常見的四種錯——三行金融資產只加了一行、抄到 113 年那一欄、把千元當成元、拿到金控的報表。</li><li><b>其他狀況</b>：把完整的畫面或錯誤訊息貼給 AI 問它怎麼辦；帳號、密碼不要貼。</li><li><b>都不行</b>：看老師台上示範，數字用計算機手算。</li></ul>
+</details>
+<h2>附表一　體檢表（比率自己算）</h2>
+<div class="tw"><table><tr><th>比率</th><th>分子（科目＋數字）</th><th>分母（科目＋數字）</th><th>比率（%）</th><th>PDF 頁碼</th><th>我查過 ✓</th></tr><tr><td><b>1　放款 ÷ 總資產</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>2　證券投資 ÷ 總資產</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>3　放款 ÷ 存款</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>4　存款 ÷ 總負債</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td><b>5　權益 ÷ 總資產</b></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<div class="tw"><table><tr><td>單位</td><td class="blank"></td><td>年度欄</td><td class="blank"></td><td>合併／個體</td><td class="blank"></td></tr></table></div>
+<p>證券投資＝透過損益按公允價值衡量之金融資產＋透過其他綜合損益按公允價值衡量之金融資產＋按攤銷後成本衡量之債務工具投資。</p>
+<h2>附表二　壓力測試：一成存款被提走</h2>
+<div class="tw"><table><tr><th>要用的數字（自己從財報找）</th><th>金額（千元）</th><th>PDF 頁碼</th></tr><tr><td>存款及匯款</td><td class="blank"></td><td class="blank"></td></tr><tr><td>現金及約當現金</td><td class="blank"></td><td class="blank"></td></tr><tr><td>存放央行及拆借銀行同業</td><td class="blank"></td><td class="blank"></td></tr><tr><td>一成存款＝存款及匯款 × 10%</td><td class="blank"></td><td>—</td></tr><tr><td>手上的錢＝現金＋存放央行及同業</td><td class="blank"></td><td>—</td></tr><tr><td>夠不夠？不夠的話差多少？從哪裡來？</td><td class="blank"></td><td>—</td></tr></table></div>
+<div class="note">先回財報 PDF 第 1 頁（紙本頁碼 8）抄兩列：現金及約當現金、存放央行及拆借銀行同業，再動 T 字帳。</div>
+<p><b>T 字帳：哪幾行動、各動多少（減少寫負號）</b></p>
+<div class="tacct"><div><b>資產</b></div><div><b>負債與權益</b></div></div>
+<div class="tw"><table><tr><th>1 放款 ÷ 總資產</th><th>2 證券投資 ÷ 總資產</th><th>3 放款 ÷ 存款</th><th>4 存款 ÷ 總負債</th><th>5 權益 ÷ 總資產</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<p><b>AI 的句子：表上、算的，還是推論？</b>（挑三句抄下來）</p>
+<div class="tw"><table><tr><th>AI 說的那一句</th><th>表上／算的／推論</th><th>根據（頁碼或理由）</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<h2>附表三　抽查紀錄（抽三格回原文）</h2>
+<div class="tw"><table><tr><th>格子（哪個數字）</th><th>PDF 頁</th><th>原文數字</th><th>對或錯</th><th>原因（單位／年度欄／合併或個體／其他）</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr></table></div>
+<h2>附表四　揭露句（抄一遍、填空）</h2>
+<div class="note"><b>本作業使用＿＿＿＿＿（AI 工具）協助＿＿＿＿＿＿＿（做了什麼）；數字已由本組對照原文核對。</b></div>
+<div class="tw"><table><tr><td class="blank"></td></tr></table></div>
+</main><script>
+document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+var txt=btn.parentNode.querySelector('pre').textContent;var lbl=btn.textContent;
+function ok(){btn.textContent=btn.dataset.done;setTimeout(function(){btn.textContent=lbl},1500)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback()})}else{fallback()}
+function fallback(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)}
+})});
+</script></body></html>
